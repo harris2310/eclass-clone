@@ -2,6 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 
 export default function Home() {
+  const handleLoginSubmit = () => {
+    console.log("hi");
+  };
+  let use = 0;
+
   return (
     <div>
       <Head>
@@ -14,7 +19,10 @@ export default function Home() {
         <h1 className="my-6 text-xl font-bold text-black">
           Welcome to E class
         </h1>
-        <form className="flex flex-col mt-24 gap-6 w-4/12 m-auto bg-slate-100 p-7">
+        <form
+          action="/home"
+          className="flex flex-col mt-24 gap-6 w-4/12 m-auto bg-slate-100 p-7"
+        >
           <h1 className="font-semibold">YOUR UNISTUDENT CREDENTIALS</h1>
           <input
             id="inp"
@@ -29,7 +37,10 @@ export default function Home() {
             type="text"
             required
           />
-          <button className="w-15 m-auto bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-blue-700 hover:border-blue-500 rounded">
+          <button
+            type="submit"
+            className="w-15 m-auto bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-blue-700 hover:border-blue-500 rounded"
+          >
             Log In
           </button>
         </form>
