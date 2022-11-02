@@ -1,5 +1,6 @@
-import React from "react";
+import React, { BaseSyntheticEvent } from "react";
 import { useForm, Resolver } from "react-hook-form";
+import { useRouter } from "next/router";
 
 type FormData = {
   email: any;
@@ -29,14 +30,16 @@ const resolver: Resolver<FormData> = async (values) => {
 };
 
 const LoginScreen = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>({ resolver });
 
-  const handleLoginSubmit = (data: object) => {
-    console.log(data);
+  const handleLoginSubmit = (data: object, e: any) => {
+    e.preventDefault();
+    router.push("/home");
   };
 
   return (
@@ -46,14 +49,16 @@ const LoginScreen = () => {
           Welcome to E class
         </h1>
         <form
-          onSubmit={handleSubmit((data) => handleLoginSubmit(data))}
+          onSubmit={handleSubmit(handleLoginSubmit)}
           className="flex flex-col mt-24 gap-6 w-4/12 m-auto bg-slate-100 p-7"
         >
           <h1 className="font-semibold">YOUR UNISTUDENT CREDENTIALS</h1>
           <input
             {...register("email")}
             placeholder="Email"
-            className="shadow appearance-none border rounded w-5/12 m-auto py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={
+              "shadow appearance-none border rounded w-5/12 m-auto py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            }
             type="text"
           />
           {errors?.email && <p>{errors.email.message}</p>}
