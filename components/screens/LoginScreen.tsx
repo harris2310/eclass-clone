@@ -1,6 +1,7 @@
 import React, { BaseSyntheticEvent } from "react";
 import { useForm, Resolver } from "react-hook-form";
 import { useRouter } from "next/router";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 type FormData = {
   email: any;
@@ -39,7 +40,7 @@ const LoginScreen = () => {
 
   const handleLoginSubmit = (data: object, e: any) => {
     e.preventDefault();
-    router.push("/home");
+    signIn();
   };
 
   return (
