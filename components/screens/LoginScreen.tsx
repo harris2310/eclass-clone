@@ -14,6 +14,9 @@ const LoginScreen = () => {
         <h1 className="my-6 text-xl font-bold text-black">
           Welcome to E class
         </h1>
+        <h1 className="my-6 text-xl font-bold text-black">
+          You'll be redirected to google login
+        </h1>
         <button
           onClick={handleClick}
           type="submit"

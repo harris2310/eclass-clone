@@ -8,9 +8,4 @@ module.exports = {
   ],
   theme: {},
   plugins: [],
-  safelist: [
-    'bg-red-500',
-    'bg-blue-500',
-    'bg-gray-500',
-  ]
 }

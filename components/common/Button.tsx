@@ -25,7 +25,7 @@ const Button = ({
   return (
     <>
       <button
-        className={`${colors[variant]} px-4 py-2  text-white rounded`}
+        className={`${colors[variant]} ${className} px-4 py-2 text-white rounded`}
         {...rest}
       >
         {children}
