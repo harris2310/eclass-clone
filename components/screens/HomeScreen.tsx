@@ -11,7 +11,6 @@ function HomeScreen({}: Props) {
   };
   return (
     <div>
-      home
       <Button variant={Variant.Danger} onClick={handleClick}>
         Sign Out
       </Button>

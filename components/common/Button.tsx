@@ -27,7 +27,6 @@ const Button = ({
   const As = as;
   return (
     <>
-      <div className="hidden bg-red-500">hi</div>
       <button
         className={`${colors[variant]} px-4 py-2  text-white rounded`}
         {...rest}
