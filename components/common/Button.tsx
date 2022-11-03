@@ -9,14 +9,12 @@ export enum Variant {
 const Button = ({
   children,
   variant,
-  as = "button",
   className,
   ...rest
 }: {
   children: ReactNode;
   variant: Variant;
   className?: string;
-  as?: keyof ReactHTML;
   [key: string]: any;
 }) => {
   const colors = {
@@ -24,7 +22,6 @@ const Button = ({
     [Variant.Secondary]: "bg-gray-500 hover:bg-gray-400",
     [Variant.Danger]: "bg-red-500",
   };
-  const As = as;
   return (
     <>
       <button

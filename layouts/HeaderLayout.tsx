@@ -8,11 +8,13 @@ type Props = {
 
 const HeaderLayout = ({ children }: Props) => {
   return (
-    <>
+    <div className="flex grow  flex-col min-h-screen">
       <Header />
-      <main className="mx-auto flex flex-col min-h-screen">{children}</main>
+      <main className="mx-auto flex flex-col w-10/12 text-center">
+        {children}
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
