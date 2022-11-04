@@ -16,5 +16,8 @@ export default NextAuth({
     brandColor: "", // Hex color code
     logo: "", // Absolute URL to image
     buttonText: "" // Hex color code
+  },
+  pages: {
+    signIn: '/signin'
   }
 })

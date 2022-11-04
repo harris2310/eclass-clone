@@ -23,6 +23,9 @@ const LoginScreen = ({ providers }: any) => {
         >
           Log In
         </button>
+        {providers.map((provider) => {
+          return <div key={provider.name}>{provider.name}</div>;
+        })}
       </main>
     </>
   );
