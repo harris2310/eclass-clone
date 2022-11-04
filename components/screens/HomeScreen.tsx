@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderLayout from "../../layouts/HeaderLayout";
-import { signIn, signOut } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import Button, { Variant } from "../common/Button";
 
 type Props = {};
@@ -28,9 +28,6 @@ function HomeScreen({}: Props) {
         non sodales neque sodales ut. Odio ut enim blandit volutpat maecenas
         volutpat blandit.
       </div>
-      <Button variant={Variant.Danger} onClick={handleClick} className="mt-12">
-        Sign Out
-      </Button>
     </div>
   );
 }

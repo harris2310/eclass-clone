@@ -4,7 +4,8 @@ import HomeScreen from "../components/screens/HomeScreen";
 import { useSession } from "next-auth/react";
 import HeaderLayout from "../layouts/HeaderLayout";
 
-export default function Home() {
+export default function Home({ providers }: any) {
+  console.log(providers);
   const session = useSession();
   return (
     <div>
@@ -15,12 +16,18 @@ export default function Home() {
       </Head>
       <HeaderLayout>
         {session.status == "authenticated" && <HomeScreen />}
-        {session.status == "unauthenticated" && <LoginScreen />}
+        {session.status == "unauthenticated" && (
+          <LoginScreen providers={providers} />
+        )}
       </HeaderLayout>
     </div>
   );
 }
 
-export async function getServerSideProps(props: any) {
-  return { props: {} };
+export async function getServerSideProps(context: any) {
+  return {
+    props: {
+      providers: await providers(context),
+    },
+  };
 }

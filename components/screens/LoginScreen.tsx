@@ -1,13 +1,12 @@
 import React, { BaseSyntheticEvent } from "react";
 import { useForm, Resolver } from "react-hook-form";
 import { useRouter } from "next/router";
-import { signIn, signOut } from "next-auth/react";
+import { signIn, signOut, getProviders } from "next-auth/react";
 
-const LoginScreen = () => {
+const LoginScreen = ({ providers }: any) => {
   const handleClick = () => {
     signIn();
   };
-
   return (
     <>
       <main className="text-center">
