@@ -1,13 +1,11 @@
 import Head from "next/head";
-import LoginScreen from "../components/screens/LoginScreen";
+import LoginScreen from "../components/screens/SignInScreen";
 import HomeScreen from "../components/screens/HomeScreen";
 import { useSession, getSession } from "next-auth/react";
 import HeaderLayout from "../layouts/HeaderLayout";
-import { ReactElement } from "react";
-import { redirect } from "next/dist/server/api-utils";
+import { requireAuth } from "../utils/requireAuth";
 
-export default function Home({ providers }: any): ReactElement {
-  const session = useSession();
+export default function Home({ props }: any) {
   return (
     <div>
       <Head>
@@ -16,23 +14,14 @@ export default function Home({ providers }: any): ReactElement {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeaderLayout>
-        {session.status == "authenticated" && <HomeScreen />}
-        {session.status == "unauthenticated" && (
-          <LoginScreen providers={providers} />
-        )}
+        <HomeScreen />
       </HeaderLayout>
     </div>
   );
 }
 
 export async function getServerSideProps(context: any) {
-  const session = await getSession();
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/signin/",
-        permanent: false,
-      },
-    };
-  }
+  return requireAuth(context, () => {
+    return { props: {} };
+  });
 }
