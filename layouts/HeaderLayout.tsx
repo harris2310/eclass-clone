@@ -8,9 +8,9 @@ type Props = {
 
 const HeaderLayout = ({ children }: Props) => {
   return (
-    <div className="flex grow  flex-col min-h-screen">
+    <div className="flex grow justify-between flex-col min-h-screen">
       <Header />
-      <main className="mx-auto flex flex-col w-10/12 text-center">
+      <main className="bg-gray-50 mx-auto h-full flex flex-col grow w-10/12 text-center">
         {children}
       </main>
       <Footer />
