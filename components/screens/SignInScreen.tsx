@@ -1,6 +1,8 @@
 import React from "react";
 import { signIn } from "next-auth/react";
 import { dailyAnnouncements } from "../../utils/constants";
+import Button from "../common/Button";
+import { Variant } from "../common/Button";
 
 type announcements = {
   title: string;
@@ -11,24 +13,24 @@ type announcements = {
 const SignInScreen = ({ providers }: any) => {
   return (
     <>
-      <h1 className="my-16 font-bold text-black">Welcome to E class</h1>
-      {Object.values(providers).map((provider: any, i) => {
-        return (
-          <div key={i}>
-            <button
-              className="w-15 m-auto bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-blue-700 hover:border-blue-500 rounded"
-              onClick={() => signIn(provider.id)}
-            >
-              Sign In With {provider.name}
-            </button>
-          </div>
-        );
-      })}
-      <div className="bg-red-200 text-lg w-6/12 mx-auto my-5 border-orange-400 border-2 p-2">
+      <h1 className="my-8 font-bold text-black">Welcome to E class</h1>
+      <div className="bg-gray-100 text-lg w-6/12 mx-auto my-5 border-orange-400 border-2 p-2">
         The DUTHNET eClass platform is a complete Electronic Course Management
         System. Access to the service is done using a simple web browser without
         the need for external
       </div>
+      {Object.values(providers).map((provider: any, i) => {
+        return (
+          <div key={i}>
+            <Button
+              variant={Variant.Google}
+              onClick={() => signIn(provider.id)}
+            >
+              Sign In With {provider.name}
+            </Button>
+          </div>
+        );
+      })}
       <div className=" w-max mx-auto mt-16">
         <table className="table-auto w-full border-separate p-2 border-spacing-y-4	border border-slate-400 ">
           <thead>
