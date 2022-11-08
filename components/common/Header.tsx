@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 import { Popover, Transition } from "@headlessui/react";
-import Button, { Variant } from "../common/Button";
 
 type Props = {};
 
@@ -30,14 +30,14 @@ const Header = (props: Props) => {
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto text-right px-16">
           <div className="text-sm lg:flex-grow">
+            <Link
+              href="/courses"
+              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-8"
+            >
+              Courses
+            </Link>
             {session.status == "authenticated" && (
               <>
-                <a
-                  href="#responsive-header"
-                  className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-8"
-                >
-                  Courses
-                </a>
                 <div className="hidden"></div>
                 <Popover className="fixed top-5 right-5">
                   <Popover.Button

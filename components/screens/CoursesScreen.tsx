@@ -9,8 +9,10 @@ function CoursesScreen({}: Props) {
       {courses.map((course) => {
         return (
           <div key={course.name}>
-            <div>
-            <div>{course.name}</div>
+            <div className="flex gap-3">
+              <div>{course.name}</div>
+              <div>{course.term}</div>
+            </div>
           </div>
         );
       })}
