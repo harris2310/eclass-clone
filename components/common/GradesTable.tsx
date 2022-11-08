@@ -1,22 +1,30 @@
 import React from "react";
 
-type Props = {};
+type Props = { courses: Array<any> };
 
-function GradesTable({}: Props) {
+type Course = { name: "string"; grade: "string" };
+
+function GradesTable({ courses }: Props) {
   return (
     <div>
       {" "}
       <div>
-        <table>
-          <thead className="bg-gray-50">
-            <tr>
-              <th>hi</th>
+        <table className="shadow-sm table-fixed w-3/4 text-left my-8 mx-5 text-xl border-separate border-spacing-1">
+          <thead className="bg-gray-200">
+            <tr className="p-4">
+              <th className="p-4">Class Name</th>
+              <th className="p-4">Grade</th>
             </tr>
           </thead>
           <tbody className="bg-white">
-            <tr>
-              <td>hi</td>
-            </tr>
+            {courses.map((course: Course) => {
+              return (
+                <tr key={course.name + course.grade}>
+                  <td className="p-4">{course.name}</td>
+                  <td className="p-4">{course.grade}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
