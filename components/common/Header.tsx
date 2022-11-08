@@ -24,11 +24,11 @@ const Header = (props: Props) => {
   };
   return (
     <div>
-      <nav className="flex items-center justify-evenly flex-wrap bg-teal-500 p-6">
+      <nav className="flex items-center justify-evenly flex-wrap bg-cyan-600 p-6">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <Link
             href="/"
-            className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-8"
+            className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-8"
           >
             <span className="font-semibold text-xl tracking-tight">
               E-Class
@@ -39,7 +39,7 @@ const Header = (props: Props) => {
           <div className="text-sm lg:flex-grow">
             <Link
               href="/courses"
-              className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-8"
+              className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-8"
             >
               Courses
             </Link>
@@ -47,7 +47,7 @@ const Header = (props: Props) => {
               <>
                 <Link
                   href="/grades"
-                  className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-8"
+                  className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-8"
                 >
                   Grades
                 </Link>

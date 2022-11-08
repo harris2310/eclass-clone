@@ -4,6 +4,8 @@ import { dailyAnnouncements } from "../../utils/constants";
 import Button from "../common/Button";
 import { Variant } from "../common/Button";
 import { Tab } from "@headlessui/react";
+import { Fragment } from "react";
+import AnnouncementsTable from "../common/AnnouncementsTable";
 import Image from "next/image";
 import googleSVG from "../../assets/google_icon.svg";
 
@@ -17,7 +19,7 @@ const SignInScreen = ({ providers }: any) => {
   return (
     <>
       <div className="mx-auto mt-6">
-        <div className="bg-gray-100 text-lg w-6/12 mx-auto my-16 border-orange-400 border-2 p-2">
+        <div className="bg-gray-100 text-lg w-6/12 mx-auto my-16 border-cyan-600 border-2 p-2">
           The eClass platform is a complete Electronic Course Management System.
           Access to the service is done using a simple web browser.
         </div>
@@ -25,10 +27,12 @@ const SignInScreen = ({ providers }: any) => {
           <Tab.Panels>
             {" "}
             <Tab.Panel>
-              <table className="table-auto w-10/12 mx-auto border-separate p-2 border-spacing-y-4	border border-slate-400 ">
+              <table className="table-auto w-10/12 mx-auto border-separate p-2 border-spacing-y-0	 border-slate-400 ">
                 <thead>
-                  <tr className="border border-slate-400">
-                    <th className="p-3 bg-slate-100">Daily Announcements</th>
+                  <tr>
+                    <th className="p-3 border border-slate-200 bg-slate-100">
+                      Daily Announcements
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,9 +54,48 @@ const SignInScreen = ({ providers }: any) => {
             <Tab.Panel>Content 3</Tab.Panel>
           </Tab.Panels>
           <Tab.List>
-            <Tab>1</Tab>
-            <Tab>2</Tab>
-            <Tab>3</Tab>
+            <Tab as={Fragment}>
+              {({ selected }) => (
+                /* Use the `selected` state to conditionally style the selected tab. */
+                <button
+                  className={
+                    selected
+                      ? " p-2 m-2 bg-cyan-600 text-white focus:none"
+                      : " text-black p-2 m-2 border border-grey-400"
+                  }
+                >
+                  1
+                </button>
+              )}
+            </Tab>
+            <Tab as={Fragment}>
+              {({ selected }) => (
+                /* Use the `selected` state to conditionally style the selected tab. */
+                <button
+                  className={
+                    selected
+                      ? " p-2 m-2 bg-cyan-600 text-white"
+                      : " text-black p-2 m-2 border border-grey-400"
+                  }
+                >
+                  2
+                </button>
+              )}
+            </Tab>
+            <Tab as={Fragment}>
+              {({ selected }) => (
+                /* Use the `selected` state to conditionally style the selected tab. */
+                <button
+                  className={
+                    selected
+                      ? " p-2 m-2 bg-cyan-600 text-white"
+                      : " text-black p-2 m-2 border border-grey-400"
+                  }
+                >
+                  3
+                </button>
+              )}
+            </Tab>
           </Tab.List>
         </Tab.Group>
 
@@ -62,7 +105,7 @@ const SignInScreen = ({ providers }: any) => {
               <Button
                 variant={Variant.Google}
                 onClick={() => signIn(provider.id)}
-                className="flex mx-auto gap-2 my-16"
+                className="flex mx-auto gap-2 my-8"
               >
                 <Image
                   width="25"
