@@ -46,7 +46,7 @@ const SignInScreen = ({ providers }: any) => {
               <Button
                 variant={Variant.Google}
                 onClick={() => signIn(provider.id)}
-                className="flex mx-auto gap-2 mt-16"
+                className="flex mx-auto gap-2 my-16"
               >
                 <Image
                   width="25"

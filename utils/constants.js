@@ -5,14 +5,13 @@ export const dailyAnnouncements = [
 ]
 
 export const courses = [
-  {name: 'Τεχνικο σχεδιο', term: '1ο', },
-  {name: 'Πεδια 2', term: '4ο'}, 
-  {name: 'Φυσικη 1', term: '1ο'},
-  {name: 'Πεδια 1', term: '2ο'},
-  {name: 'Διαφορικες Εξισωσεις', term: '2ο'},
-  {name: 'Ηλεκτρικα Κυκλωματα 1', term: '2ο'},
-  {name: 'Ηλεκτρικα Κυκλωματα 2', term: '4ο'},
-  {name: 'Ηλεκτρικα Κυκλωματα 3', term: '5ο'},
-  {name: 'Τηλεποικοινωνιες 1', term: '6ο'},
+  {name: 'Electromagnetic Fields 2', term: '4o'}, 
+  {name: 'Physics 1', term: '1o'},
+  {name: 'Electromagnetic Fields 1', term: '2o'},
+  {name: 'Differential Equations', term: '2o'},
+  {name: 'Circuits 1', term: '2o'},
+  {name: 'Circuits 2', term: '4o'},
+  {name: 'Circuits 3', term: '5o'},
+  {name: 'Telecommunations 1', term: '6ο'},
 
 ]
