@@ -32,11 +32,9 @@ const CoursesPage = ({ courses }: Props) => {
 };
 
 export async function getServerSideProps(context: any) {
-  return requireAuth(context, async () => {
-    const data = await prisma.courses.findMany();
-    const courses = data;
-    return { props: { courses } };
-  });
+  const data = await prisma.courses.findMany();
+  const courses = data;
+  return { props: { courses } };
 }
 
 export default CoursesPage;
