@@ -2,7 +2,7 @@ import React from "react";
 
 type Props = { courses: Array<any> };
 
-type Course = { name: "string"; grade: "string" };
+type Course = { name: string; grade: string; term: number }[];
 
 function GradesTable({ courses }: Props) {
   return (
@@ -17,14 +17,16 @@ function GradesTable({ courses }: Props) {
             </tr>
           </thead>
           <tbody className="bg-white">
-            {courses.map((course: Course) => {
-              return (
-                <tr key={course.name + course.grade}>
-                  <td className="p-4">{course.name}</td>
-                  <td className="p-4">{course.grade}</td>
-                </tr>
-              );
-            })}
+            {courses.map(
+              (course: { name: string; grade: string; term: number }) => {
+                return (
+                  <tr key={course.name + course.grade}>
+                    <td className="p-4">{course.name}</td>
+                    <td className="p-4">{course.grade}</td>
+                  </tr>
+                );
+              }
+            )}
           </tbody>
         </table>
       </div>

@@ -5,8 +5,18 @@ import { useSession, getSession } from "next-auth/react";
 import HeaderLayout from "../layouts/HeaderLayout";
 import GradesScreen from "../components/screens/GradesScreen";
 import { requireAuth } from "../utils/requireAuth";
+import prisma from "../lib/prismadb";
+import { grades } from "@prisma/client";
 
-export default function Home({ props }: any) {
+type Props = {
+  grades: Array<{
+    name: string;
+    grade: string;
+    term: number;
+  }>;
+};
+
+export default function Home({ grades }: Props) {
   return (
     <div>
       <Head>
@@ -15,14 +25,18 @@ export default function Home({ props }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeaderLayout>
-        <GradesScreen />
+        <GradesScreen grades={grades} />
       </HeaderLayout>
     </div>
   );
 }
 
 export async function getServerSideProps(context: any) {
-  return requireAuth(context, () => {
-    return { props: {} };
+  return requireAuth(context, async () => {
+    const data = await prisma.grades.findMany();
+    console.log(data);
+    const grades = data;
+    console.log(grades);
+    return { props: { grades } };
   });
 }
