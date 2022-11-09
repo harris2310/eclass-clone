@@ -5,9 +5,17 @@ import CoursesScreen from "../components/screens/CoursesScreen";
 import { requireAuth } from "../utils/requireAuth";
 import prisma from "../lib/prismadb";
 
-type Props = { Props: any };
+type Props = {
+  courses: Array<{
+    id: string;
+    name: string;
+    term: number;
+    description: string;
+    open: boolean;
+  }>;
+};
 
-const courses = (courses: Props) => {
+const CoursesPage = ({ courses }: Props) => {
   return (
     <div>
       {" "}
@@ -17,7 +25,7 @@ const courses = (courses: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeaderLayout>
-        <CoursesScreen />
+        <CoursesScreen courses={courses} />
       </HeaderLayout>
     </div>
   );
@@ -31,4 +39,4 @@ export async function getServerSideProps(context: any) {
   });
 }
 
-export default courses;
+export default CoursesPage;
