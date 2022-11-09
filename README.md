@@ -5,6 +5,7 @@ The  E-Class platform is a complete Electronic Course Management System. Access 
 
 ## To-Do
 
+* Add CI testing - Github Actions
 * Add Role Based Authorization
 * Fix landing Page
 * Change Footer Content
