@@ -6,7 +6,6 @@ import HeaderLayout from "../layouts/HeaderLayout";
 import GradesScreen from "../components/screens/GradesScreen";
 import { requireAuth } from "../utils/requireAuth";
 import prisma from "../lib/prismadb";
-import { grades } from "@prisma/client";
 
 type Props = {
   grades: Array<{
@@ -34,9 +33,7 @@ export default function Home({ grades }: Props) {
 export async function getServerSideProps(context: any) {
   return requireAuth(context, async () => {
     const data = await prisma.grades.findMany();
-    console.log(data);
     const grades = data;
-    console.log(grades);
     return { props: { grades } };
   });
 }

@@ -9,7 +9,7 @@ function GradesTable({ courses }: Props) {
     <div>
       {" "}
       <div>
-        <table className="shadow-sm table-fixed w-3/4 text-left my-8 mx-5 text-xl border-separate border-spacing-1">
+        <table className="shadow-sm table-fixed w-3/4 text-left my-2 mx-5 text-xl border-separate border-spacing-1">
           <thead className="bg-gray-200">
             <tr className="p-4">
               <th className="p-4">Class Name</th>

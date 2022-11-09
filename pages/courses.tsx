@@ -2,10 +2,12 @@ import React from "react";
 import Head from "next/head";
 import HeaderLayout from "../layouts/HeaderLayout";
 import CoursesScreen from "../components/screens/CoursesScreen";
+import { requireAuth } from "../utils/requireAuth";
+import prisma from "../lib/prismadb";
 
-type Props = {};
+type Props = { Props: any };
 
-const courses = (props: Props) => {
+const courses = (courses: Props) => {
   return (
     <div>
       {" "}
@@ -20,5 +22,13 @@ const courses = (props: Props) => {
     </div>
   );
 };
+
+export async function getServerSideProps(context: any) {
+  return requireAuth(context, async () => {
+    const data = await prisma.courses.findMany();
+    const courses = data;
+    return { props: { courses } };
+  });
+}
 
 export default courses;

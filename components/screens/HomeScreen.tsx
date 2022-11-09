@@ -11,7 +11,7 @@ function HomeScreen({}: Props) {
   };
   return (
     <div>
-      <div className="text-xl mt-12">
+      <div className="text-xl mt-12 p-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Elementum nibh
         tellus molestie nunc non blandit massa. Quam lacus suspendisse faucibus

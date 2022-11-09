@@ -52,8 +52,16 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model grades {
+model Grades {
   name          String @id
   grade         String
   term          Int
+}
+
+model Courses {
+  id            String   @id @default(cuid())
+  name          String 
+  term          Int
+  description   String
+  open          Boolean
 }
