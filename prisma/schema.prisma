@@ -52,16 +52,26 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model Grades {
-  name          String @id
-  grade         String
-  term          Int
+model Grade {
+  courseId      Int 
+  student       Student @relation(fields: [studentId], references: [id])
+  studentId     Int
+  grade         Float
+  @@id([courseId, studentId])
 }
 
-model Courses {
-  id            String   @id @default(cuid())
+model Course {
+  id            Int   @id @default(autoincrement())
   name          String 
   term          Int
   description   String
   open          Boolean
+}
+
+model Student {
+  id                Int   @id @default(autoincrement())
+  firstName         String
+  lastName          String
+  email             String
+  grades     Grade[]
 }

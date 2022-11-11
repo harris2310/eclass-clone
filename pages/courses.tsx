@@ -32,7 +32,7 @@ const CoursesPage = ({ courses }: Props) => {
 };
 
 export async function getServerSideProps(context: any) {
-  const data = await prisma.courses.findMany();
+  const data = await prisma.course.findMany();
   const courses = data;
   return { props: { courses } };
 }

@@ -32,7 +32,7 @@ export default function Home({ grades }: Props) {
 
 export async function getServerSideProps(context: any) {
   return requireAuth(context, async () => {
-    const data = await prisma.grades.findMany();
+    const data = await prisma.grade.findMany();
     const grades = data;
     return { props: { grades } };
   });
