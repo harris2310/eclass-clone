@@ -9,9 +9,9 @@ import prisma from "../lib/prismadb";
 
 type Props = {
   grades: Array<{
-    name: string;
-    grade: string;
-    term: number;
+    courseId: number;
+    studentId: number;
+    grade: number;
   }>;
 };
 
@@ -34,6 +34,7 @@ export async function getServerSideProps(context: any) {
   return requireAuth(context, async () => {
     const data = await prisma.grade.findMany();
     const grades = data;
+    console.log(grades);
     return { props: { grades } };
   });
 }

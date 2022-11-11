@@ -4,9 +4,9 @@ import GradesTable from "../common/GradesTable";
 
 type Props = {
   grades: Array<{
-    name: string;
-    grade: string;
-    term: number;
+    courseId: number;
+    studentId: number;
+    grade: number;
   }>;
 };
 
@@ -29,13 +29,13 @@ const GradesScreen = ({ grades }: Props) => {
       </Tab.List>
       <Tab.Panels>
         <Tab.Panel>
-          <GradesTable courses={term1} />;
+          <GradesTable grades={term1} />;
         </Tab.Panel>
         <Tab.Panel>
-          <GradesTable courses={term2} />
+          <GradesTable grades={term2} />
         </Tab.Panel>
         <Tab.Panel>
-          <GradesTable courses={term3} />
+          <GradesTable grades={term3} />
         </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>

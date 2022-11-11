@@ -1,10 +1,10 @@
 import React from "react";
 
-type Props = { courses: Array<any> };
+type Props = { grades: Array<any> };
 
-type Course = { name: string; grade: string; term: number }[];
+type Course = { courseId: number; grade: number; studentId: number }[];
 
-function GradesTable({ courses }: Props) {
+function GradesTable({ grades }: Props) {
   return (
     <div>
       {" "}
@@ -17,12 +17,16 @@ function GradesTable({ courses }: Props) {
             </tr>
           </thead>
           <tbody className="bg-white">
-            {courses.map(
-              (course: { name: string; grade: string; term: number }) => {
+            {grades.map(
+              (grade: {
+                courseId: number;
+                grade: number;
+                studentId: number;
+              }) => {
                 return (
-                  <tr key={course.name + course.grade}>
-                    <td className="p-4">{course.name}</td>
-                    <td className="p-4">{course.grade}</td>
+                  <tr key={grade.courseId + grade.grade}>
+                    <td className="p-4">{grade.studentId}</td>
+                    <td className="p-4">{grade.grade}</td>
                   </tr>
                 );
               }
