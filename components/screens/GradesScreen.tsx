@@ -8,14 +8,22 @@ type Props = {
     studentId: number;
     grade: number;
   }>;
+  courses: Array<{
+    id: number;
+    name: string;
+    term: number;
+    description: string;
+    open: boolean;
+  }>;
 };
 
 const terms: Array<string> = ["Term 1", "Term 2", "Term 3"];
 
-const GradesScreen = ({ grades }: Props) => {
-  const term1 = grades.filter((grade) => grade.term == 1);
-  const term2 = grades.filter((grade) => grade.term == 2);
-  const term3 = grades.filter((grade) => grade.term == 3);
+const GradesScreen = ({ grades, courses }: Props) => {
+  const term1 = courses.filter((course) => course.term == 1);
+  const term2 = courses.filter((course) => course.term == 2);
+  const term3 = courses.filter((course) => course.term == 3);
+  console.log(term1);
   return (
     <Tab.Group>
       <Tab.List className="p-4 flex gap-4 mx-auto my-4 text-2xl font-semibold">
@@ -29,13 +37,13 @@ const GradesScreen = ({ grades }: Props) => {
       </Tab.List>
       <Tab.Panels>
         <Tab.Panel>
-          <GradesTable grades={term1} />;
+          <GradesTable courses={term1} grades={grades} />;
         </Tab.Panel>
         <Tab.Panel>
-          <GradesTable grades={term2} />
+          <GradesTable courses={term2} grades={grades} />
         </Tab.Panel>
         <Tab.Panel>
-          <GradesTable grades={term3} />
+          <GradesTable courses={term3} grades={grades} />
         </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>

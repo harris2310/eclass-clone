@@ -12,16 +12,16 @@ type Props = {
     studentId: number;
     grade: number;
   }>;
+  courses: Array<{
+    id: number;
+    name: string;
+    term: number;
+    description: string;
+    open: boolean;
+  }>;
 };
 
-type Student = {
-  name: string;
-  email: string;
-  image: string;
-  grades: Object;
-};
-
-export default function Home({ grades }: Props) {
+export default function Home({ grades, courses }: Props) {
   return (
     <div>
       <Head>
@@ -30,7 +30,7 @@ export default function Home({ grades }: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeaderLayout>
-        <GradesScreen grades={grades} />
+        <GradesScreen grades={grades} courses={courses} />
       </HeaderLayout>
     </div>
   );
@@ -44,13 +44,13 @@ export async function getServerSideProps(context: any) {
       authOptions
     );
     const email = session.user.email;
-
-    const data: Student = await prisma.student.findMany({
+    const courses = await prisma.course.findMany();
+    const data = await prisma.student.findMany({
       where: { email: email },
       include: { grades: true },
     });
     const grades = data[0].grades;
-    console.log(grades);
-    return { props: { grades } };
+    let coursesToFind: Array<number> = [];
+    return { props: { grades, courses } };
   });
 }
