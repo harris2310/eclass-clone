@@ -30,10 +30,10 @@ const SignInScreen = ({ providers }: any) => {
             <Tab.Panel>Content 3</Tab.Panel>
           </Tab.Panels>
           <Tab.List>
-            <PaginTab num={1} />
-            <PaginTab num={2} />
-            <PaginTab num={3} />
-            <PaginTab num={4} />
+            <PaginTab>1</PaginTab>
+            <PaginTab>2</PaginTab>
+            <PaginTab>3</PaginTab>
+            <PaginTab>4</PaginTab>
           </Tab.List>
         </Tab.Group>
 

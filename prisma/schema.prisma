@@ -66,6 +66,7 @@ model Course {
   term          Int
   description   String
   open          Boolean
+  announcements Announcement[]
 }
 
 model Student {
@@ -74,4 +75,13 @@ model Student {
   lastName          String
   email             String
   grades     Grade[]
+}
+
+model Announcement {
+  id          Int  @id @default(autoincrement())
+  course      Course @relation(fields: [courseId], references: [id])
+  courseId    Int
+  date        DateTime
+  title       String
+  content     String
 }

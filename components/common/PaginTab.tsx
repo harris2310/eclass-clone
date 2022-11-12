@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import { Tab } from "@headlessui/react";
 
-type Props = { selected: boolean; num: number };
+type Props = { children: string };
 
-const PaginTab = ({ num }) => {
+const PaginTab = ({ children }: Props) => {
   return (
     <Tab as={Fragment}>
       {({ selected }) => (
@@ -15,7 +15,7 @@ const PaginTab = ({ num }) => {
               : " text-black p-2 m-2 border border-grey-400"
           }
         >
-          {num}
+          {children}
         </button>
       )}
     </Tab>
