@@ -1,10 +1,17 @@
 import React from "react";
+import { dailyAnnouncements } from "../../utils/constants";
 
 type Props = {};
 
+type announcements = {
+  title: string;
+  date: string;
+  announcement: string;
+};
+
 function AnnouncementsTable({}: Props) {
   return (
-    <div>
+    <>
       <table className="table-auto w-10/12 mx-auto border-separate p-2 border-spacing-y-4	border border-slate-400 ">
         <thead>
           <tr className="border border-slate-400">
@@ -25,7 +32,7 @@ function AnnouncementsTable({}: Props) {
           })}
         </tbody>
       </table>
-    </div>
+    </>
   );
 }
 
