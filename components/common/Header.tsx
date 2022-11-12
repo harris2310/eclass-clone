@@ -22,6 +22,9 @@ const Header = (props: Props) => {
   const handleClick = () => {
     signOut();
   };
+  const handleSettingsClick = () => {
+    console.log("hi");
+  };
   return (
     <div>
       <nav className="flex items-center justify-evenly flex-wrap bg-cyan-600 p-6">
@@ -80,8 +83,16 @@ const Header = (props: Props) => {
                       <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                         <div className="bg-white p-5 text-center w-40">
                           <button
+                            onClick={handleSettingsClick}
+                            className="-m-3 w-full px-2 border border-gray-200 text-center font-medium rounded-lg p-3 hover:cursor-pointer hover:bg-gray-100"
+                          >
+                            Settings
+                          </button>
+                        </div>
+                        <div className="bg-white p-5 text-center w-40">
+                          <button
                             onClick={handleClick}
-                            className="-m-3 w-full px-2 text-center font-medium rounded-lg p-2 hover:cursor-pointer hover:bg-gray-100"
+                            className="-m-3 w-full px-2 border border-gray-200 text-center font-medium rounded-lg p-3 hover:cursor-pointer hover:bg-gray-100"
                           >
                             Sign Out
                           </button>

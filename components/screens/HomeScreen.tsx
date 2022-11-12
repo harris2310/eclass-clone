@@ -1,9 +1,15 @@
-import React from "react";
-import HeaderLayout from "../../layouts/HeaderLayout";
-import { useSession, signIn, signOut } from "next-auth/react";
-import Button, { Variant } from "../common/Button";
+import React, { Fragment } from "react";
+import { signOut } from "next-auth/react";
+import { dailyAnnouncements } from "../../utils/constants";
+import { Tab } from "@headlessui/react";
 
 type Props = {};
+
+type announcements = {
+  title: string;
+  date: string;
+  announcement: string;
+};
 
 function HomeScreen({}: Props) {
   const handleClick = () => {
@@ -11,7 +17,7 @@ function HomeScreen({}: Props) {
   };
   return (
     <div>
-      <div className="text-xl mt-12 p-4">
+      <div className="text-xl my-12 p-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Elementum nibh
         tellus molestie nunc non blandit massa. Quam lacus suspendisse faucibus
@@ -28,6 +34,81 @@ function HomeScreen({}: Props) {
         non sodales neque sodales ut. Odio ut enim blandit volutpat maecenas
         volutpat blandit.
       </div>
+      <Tab.Group>
+        <Tab.Panels>
+          {" "}
+          <Tab.Panel>
+            <table className="table-auto w-10/12 mx-auto border-separate p-2 border-spacing-y-0	 border-slate-400 ">
+              <thead>
+                <tr>
+                  <th className="p-3 border border-slate-200 bg-slate-100">
+                    Daily Announcements
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {dailyAnnouncements.map((ann: announcements) => {
+                  return (
+                    <tr key={ann.title}>
+                      <td className="border border-slate-200 p-3  gap-4">
+                        <div className="inline-block">{ann.title}</div>
+                        <div className="text-sm inline ml-3">{ann.date}</div>
+                        <div className="text-sm">{ann.announcement}</div>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </Tab.Panel>
+          <Tab.Panel>Content 2</Tab.Panel>
+          <Tab.Panel>Content 3</Tab.Panel>
+        </Tab.Panels>
+        <Tab.List>
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              /* Use the `selected` state to conditionally style the selected tab. */
+              <button
+                className={
+                  selected
+                    ? " p-2 m-2 bg-cyan-600 text-white focus:none"
+                    : " text-black p-2 m-2 border border-grey-400"
+                }
+              >
+                1
+              </button>
+            )}
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              /* Use the `selected` state to conditionally style the selected tab. */
+              <button
+                className={
+                  selected
+                    ? " p-2 m-2 bg-cyan-600 text-white"
+                    : " text-black p-2 m-2 border border-grey-400"
+                }
+              >
+                2
+              </button>
+            )}
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              /* Use the `selected` state to conditionally style the selected tab. */
+              <button
+                className={
+                  selected
+                    ? " p-2 m-2 bg-cyan-600 text-white"
+                    : " text-black p-2 m-2 border border-grey-400"
+                }
+              >
+                3
+              </button>
+            )}
+          </Tab>
+        </Tab.List>
+      </Tab.Group>
     </div>
   );
 }

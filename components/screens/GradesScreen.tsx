@@ -17,12 +17,13 @@ type Props = {
   }>;
 };
 
-const terms: Array<string> = ["Term 1", "Term 2", "Term 3"];
+const terms: Array<string> = ["Term 1", "Term 2", "Term 3", "Term 4"];
 
 const GradesScreen = ({ grades, courses }: Props) => {
   const term1 = courses.filter((course) => course.term == 1);
   const term2 = courses.filter((course) => course.term == 2);
   const term3 = courses.filter((course) => course.term == 3);
+  const term4 = courses.filter((course) => course.term == 4);
   console.log(term1);
   return (
     <Tab.Group>
@@ -44,6 +45,9 @@ const GradesScreen = ({ grades, courses }: Props) => {
         </Tab.Panel>
         <Tab.Panel>
           <GradesTable courses={term3} grades={grades} />
+        </Tab.Panel>
+        <Tab.Panel>
+          <GradesTable courses={term4} grades={grades} />
         </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>

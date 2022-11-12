@@ -23,7 +23,15 @@ function GradesTable({ courses, grades }: Props) {
                     {grades.map((grade) => (
                       <div key={grade.grade + grade.courseId}>
                         {grade.courseId == course.id ? (
-                          <div>{grade.grade}</div>
+                          <div
+                            className={
+                              grade.grade >= 5
+                                ? "text-green-600"
+                                : "text-red-600"
+                            }
+                          >
+                            {grade.grade}
+                          </div>
                         ) : (
                           <div />
                         )}
