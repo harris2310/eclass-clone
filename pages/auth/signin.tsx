@@ -27,7 +27,6 @@ export async function getServerSideProps(context: any) {
     where: { courseId: 1000 },
   });
   generalAnnouncements = JSON.parse(JSON.stringify(generalAnnouncements));
-  console.log(generalAnnouncements);
   return {
     props: { providers, generalAnnouncements },
   };

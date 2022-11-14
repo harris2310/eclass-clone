@@ -1,13 +1,8 @@
+import Link from "next/link";
 import React from "react";
 
 type Props = {
-  generalAnnouncements: Object[];
-};
-
-type announcements = {
-  title: string;
-  date: string;
-  announcement: string;
+  generalAnnouncements: Array<Object>;
 };
 
 function AnnouncementsTable({ generalAnnouncements }: Props) {
@@ -20,15 +15,17 @@ function AnnouncementsTable({ generalAnnouncements }: Props) {
           </tr>
         </thead>
         <tbody>
-          {generalAnnouncements.map((ann: announcements) => {
+          {generalAnnouncements.map((ann: any) => {
             return (
               <tr key={ann.title}>
                 <td className="border border-slate-200 p-3  gap-4">
-                  <div className="inline-block">{ann.title}</div>
+                  <Link href="/announcements/general/[ann.title]">
+                    <div className="inline-block">{ann.title}</div>
+                  </Link>
                   <div className="text-sm inline ml-3">
                     {ann.date.substring(0, 10)}
                   </div>
-                  <div className="text-sm">{ann.announcement}</div>
+                  <div className="text-sm">{ann.content}</div>
                 </td>
               </tr>
             );

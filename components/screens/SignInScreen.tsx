@@ -1,6 +1,5 @@
 import React from "react";
 import { signIn } from "next-auth/react";
-import { generalAnnouncements } from "../../utils/constants";
 import Button from "../common/Button";
 import { Variant } from "../common/Button";
 import { Tab } from "@headlessui/react";
@@ -15,6 +14,10 @@ type Props = {
 };
 
 const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
+  let result = [];
+  for (let i = 0; i <= generalAnnouncements.length; i = i + 2) {
+    result.push(generalAnnouncements.slice(i, i + 3));
+  }
   return (
     <>
       <div className="mx-auto mt-6">
@@ -26,11 +29,11 @@ const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
           <Tab.Panels>
             {" "}
             <Tab.Panel>
-              <AnnouncementsTable generalAnnouncements={generalAnnouncements} />
+              <AnnouncementsTable generalAnnouncements={result[0]} />
             </Tab.Panel>
             <Tab.Panel>
               {" "}
-              <AnnouncementsTable generalAnnouncements={generalAnnouncements} />
+              <AnnouncementsTable generalAnnouncements={result[1]} />
             </Tab.Panel>
             <Tab.Panel>Content 3</Tab.Panel>
           </Tab.Panels>
@@ -38,7 +41,6 @@ const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
             <PaginTab>1</PaginTab>
             <PaginTab>2</PaginTab>
             <PaginTab>3</PaginTab>
-            <PaginTab>4</PaginTab>
           </Tab.List>
         </Tab.Group>
 
