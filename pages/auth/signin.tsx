@@ -1,13 +1,21 @@
 import React from "react";
-import { getProviders, signIn } from "next-auth/react";
+import { getProviders } from "next-auth/react";
 import SignInScreen from "../../components/screens/SignInScreen";
 import HeaderLayout from "../../layouts/HeaderLayout";
 
-export default function SignIn({ providers }: any) {
+type Props = {
+  providers: any;
+  generalAnnouncements: Array<Object>;
+};
+
+export default function SignIn({ providers, generalAnnouncements }: Props) {
   return (
     <>
       <HeaderLayout>
-        <SignInScreen providers={providers} />
+        <SignInScreen
+          providers={providers}
+          generalAnnouncements={generalAnnouncements}
+        />
       </HeaderLayout>
     </>
   );
@@ -15,7 +23,12 @@ export default function SignIn({ providers }: any) {
 
 export async function getServerSideProps(context: any) {
   const providers = await getProviders();
+  let generalAnnouncements = await prisma.announcement.findMany({
+    where: { courseId: 1000 },
+  });
+  generalAnnouncements = JSON.parse(JSON.stringify(generalAnnouncements));
+  console.log(generalAnnouncements);
   return {
-    props: { providers },
+    props: { providers, generalAnnouncements },
   };
 }

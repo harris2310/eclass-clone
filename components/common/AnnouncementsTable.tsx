@@ -1,7 +1,8 @@
 import React from "react";
-import { dailyAnnouncements } from "../../utils/constants";
 
-type Props = {};
+type Props = {
+  generalAnnouncements: Object[];
+};
 
 type announcements = {
   title: string;
@@ -9,7 +10,7 @@ type announcements = {
   announcement: string;
 };
 
-function AnnouncementsTable({}: Props) {
+function AnnouncementsTable({ generalAnnouncements }: Props) {
   return (
     <>
       <table className="table-auto w-10/12 mx-auto border-separate p-2 border-spacing-y-4	border border-slate-400 ">
@@ -19,12 +20,14 @@ function AnnouncementsTable({}: Props) {
           </tr>
         </thead>
         <tbody>
-          {dailyAnnouncements.map((ann: announcements) => {
+          {generalAnnouncements.map((ann: announcements) => {
             return (
               <tr key={ann.title}>
                 <td className="border border-slate-200 p-3  gap-4">
                   <div className="inline-block">{ann.title}</div>
-                  <div className="text-sm inline ml-3">{ann.date}</div>
+                  <div className="text-sm inline ml-3">
+                    {ann.date.substring(0, 10)}
+                  </div>
                   <div className="text-sm">{ann.announcement}</div>
                 </td>
               </tr>

@@ -1,6 +1,6 @@
 import React from "react";
 import { signIn } from "next-auth/react";
-import { dailyAnnouncements } from "../../utils/constants";
+import { generalAnnouncements } from "../../utils/constants";
 import Button from "../common/Button";
 import { Variant } from "../common/Button";
 import { Tab } from "@headlessui/react";
@@ -9,7 +9,12 @@ import AnnouncementsTable from "../common/AnnouncementsTable";
 import Image from "next/image";
 import googleSVG from "../../assets/google_icon.svg";
 
-const SignInScreen = ({ providers }: any) => {
+type Props = {
+  providers: any;
+  generalAnnouncements: Array<Object>;
+};
+
+const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
   return (
     <>
       <div className="mx-auto mt-6">
@@ -21,11 +26,11 @@ const SignInScreen = ({ providers }: any) => {
           <Tab.Panels>
             {" "}
             <Tab.Panel>
-              <AnnouncementsTable />
+              <AnnouncementsTable generalAnnouncements={generalAnnouncements} />
             </Tab.Panel>
             <Tab.Panel>
               {" "}
-              <AnnouncementsTable />
+              <AnnouncementsTable generalAnnouncements={generalAnnouncements} />
             </Tab.Panel>
             <Tab.Panel>Content 3</Tab.Panel>
           </Tab.Panels>
