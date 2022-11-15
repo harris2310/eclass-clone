@@ -15,13 +15,13 @@ type Props = {
 
 const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
   let result = [];
-  for (let i = 0; i <= generalAnnouncements.length; i = i + 2) {
+  for (let i = 0; i <= generalAnnouncements.length; i = i + 3) {
     result.push(generalAnnouncements.slice(i, i + 3));
   }
   return (
     <>
       <div className="mx-auto mt-6">
-        <div className="bg-gray-100 text-lg w-6/12 mx-auto my-16 border-cyan-600 border-2 p-2">
+        <div className="bg-gray-100 text-lg w-6/12 mx-auto my-8 border-cyan-600 border-2 p-2">
           The eClass platform is a complete Electronic Course Management System.
           Access to the service is done using a simple web browser.
         </div>
@@ -50,7 +50,7 @@ const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
               <Button
                 variant={Variant.Google}
                 onClick={() => signIn(provider.id)}
-                className="flex mx-auto gap-2 my-20"
+                className="flex mx-auto gap-2 my-16"
               >
                 <Image
                   width="25"

@@ -19,13 +19,17 @@ function AnnouncementsTable({ generalAnnouncements }: Props) {
             return (
               <tr key={ann.title}>
                 <td className="border border-slate-200 p-3  gap-4">
-                  <Link href="/announcements/general/[ann.title]">
-                    <div className="inline-block">{ann.title}</div>
+                  <Link href={"/announcements/general/" + ann.id}>
+                    <div className="inline-block text-lg text-blue-400 hover:text-blue-800">
+                      {ann.title}
+                    </div>
                   </Link>
                   <div className="text-sm inline ml-3">
                     {ann.date.substring(0, 10)}
                   </div>
-                  <div className="text-sm">{ann.content}</div>
+                  <div className="text-sm">
+                    {ann.content.substring(0, 100)}...
+                  </div>
                 </td>
               </tr>
             );
