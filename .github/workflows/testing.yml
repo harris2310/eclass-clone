@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm --force install
-        run: npm ci
+      - name: npm install
+        run: npm ci --force 
       - name: tests
         run: npm test
