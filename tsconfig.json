@@ -22,7 +22,7 @@
         "name": "next"
       }
     ],
-    "strict": false
+    "strict": true
   },
   "include": [
     "next-env.d.ts",
@@ -33,6 +33,7 @@
     "jest.config.js"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".github"
   ]
 }
