@@ -7,3 +7,5 @@ describe("describe outer", () => {
     test("test 1", () => console.log("test 1"));
   });
 });
+
+//Example test
