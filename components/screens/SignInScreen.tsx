@@ -20,10 +20,9 @@ const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
   }
   return (
     <>
-      <div className="mx-auto mt-6">
-        <div className="bg-gray-100 text-lg w-6/12 mx-auto my-8 border-cyan-600 border-2 p-2">
-          The eClass platform is a complete Electronic Course Management System.
-          Access to the service is done using a simple web browser.
+      <div className='mx-auto mt-6'>
+        <div className='bg-gray-100 text w-8/12 mx-auto my-4 border-cyan-600 border-2 p-2'>
+          The eClass platform is a complete Electronic Course Management System. Access to the service is done using a simple web browser.
         </div>
         <Tab.Group>
           <Tab.Panels>
@@ -47,20 +46,8 @@ const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
         {Object.values(providers).map((provider: any, i) => {
           return (
             <div key={i}>
-              <Button
-                variant={Variant.Google}
-                onClick={() => signIn(provider.id)}
-                className="flex mx-auto gap-2 my-16"
-              >
-                <Image
-                  width="25"
-                  height="25"
-                  src={googleSVG}
-                  alt="google logo"
-                />{" "}
-                <div className="font-semibold">
-                  Sign In With {provider.name}
-                </div>
+              <Button variant={Variant.Google} onClick={() => signIn(provider.id)} className='flex mx-auto gap-2 my-16'>
+                <Image width='25' height='25' src={googleSVG} alt='google logo' /> <div className='font-semibold'>Sign In With {provider.name}</div>
               </Button>
             </div>
           );

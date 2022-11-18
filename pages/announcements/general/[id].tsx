@@ -1,6 +1,7 @@
 import React from "react";
 import GeneralAnnouncementScreen from "../../../components/screens/GeneralAnnouncementScreen";
 import HeaderLayout from "../../../layouts/HeaderLayout";
+import Head from "next/head";
 
 type Props = {
   announcement: { id: number; date: string; title: string; content: string };
@@ -9,6 +10,11 @@ type Props = {
 const DynamicAnn = ({ announcement }: Props) => {
   return (
     <>
+      <Head>
+        <title>E-class | Announcements</title>
+        <meta name='description' content='Has General Announcements if you user is not loggedIn and Course Announcements if user is loggedIn' />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
       <HeaderLayout>
         <GeneralAnnouncementScreen announcement={announcement} />{" "}
       </HeaderLayout>
