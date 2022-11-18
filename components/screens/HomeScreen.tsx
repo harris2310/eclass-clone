@@ -12,22 +12,22 @@ type announcements = {
   announcement: string;
 };
 
-function HomeScreen({}: Props) {
+function HomeScreen({ generalAnnouncements }: any) {
   const handleClick = () => {
     signOut();
   };
   return (
     <div>
-      <div className="text-xl my-12 p-4">Pretty good</div>
+      <div className='text-xl my-12 p-4'>Pretty good</div>
       <Tab.Group>
         <Tab.Panels>
           {" "}
           <Tab.Panel>
-            <AnnouncementsTable />
+            <AnnouncementsTable generalAnnouncements={generalAnnouncements} />
           </Tab.Panel>
           <Tab.Panel>
             {" "}
-            <AnnouncementsTable />
+            <AnnouncementsTable generalAnnouncements={generalAnnouncements} />
           </Tab.Panel>
           <Tab.Panel>Content 3</Tab.Panel>
         </Tab.Panels>
