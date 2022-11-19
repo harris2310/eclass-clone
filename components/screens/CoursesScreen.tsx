@@ -14,7 +14,7 @@ function CoursesScreen({ courses }: Courses) {
   console.log(courses);
   return (
     <div>
-      <table className='shadow-sm table-fixed w-3/5 text-left my-8 mx-8 text-lg border-separate border-spacing-1'>
+      <table className='shadow-sm table-fixed w-3/5 text-left my-8 mx-8 border-separate border-spacing-1'>
         <thead className='bg-gray-200'>
           <tr className='p-2'>
             <th className='p-2 w-10/12'>Class Name</th>
@@ -35,7 +35,7 @@ function CoursesScreen({ courses }: Courses) {
                     <div>{course.term}</div>
                   </td>
                   <td className='p-2'>
-                    <div>{course.open == true ? <div>OPEN</div> : <div>CLOSED</div>}</div>
+                    <div>{course.open == true ? <div>Open</div> : <div>Closed</div>}</div>
                   </td>
                 </tr>
               );

@@ -1,9 +1,9 @@
 import React from "react";
 import Head from "next/head";
-import HeaderLayout from "../layouts/HeaderLayout";
-import CoursesScreen from "../components/screens/CoursesScreen";
-import { requireAuth } from "../utils/requireAuth";
-import prisma from "../lib/prismadb";
+import HeaderLayout from "../../layouts/HeaderLayout";
+import CoursesScreen from "../../components/screens/CoursesScreen";
+import { requireAuth } from "../../utils/requireAuth";
+import prisma from "../../lib/prismadb";
 
 type Props = {
   courses: Array<{
@@ -16,6 +16,7 @@ type Props = {
 };
 
 const CoursesPage = ({ courses }: Props) => {
+  courses.sort((a, b) => (a.term > b.term ? 1 : -1));
   return (
     <div>
       {" "}
