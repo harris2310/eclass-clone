@@ -20,5 +20,8 @@ jobs:
         run: npm ci --force
       - name: jest
         run: npm test
-      - name: Run Server and Cypress
-        run: npm run dev && npm run cypress
+      - name: Cypress run
+        uses: cypress-io/github-action@v4.x.x # use the explicit version number
+        with:
+          build: npm run build
+          start: npm start
