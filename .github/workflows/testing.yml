@@ -18,9 +18,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install
         run: npm ci --force
+      - name: Run Server
+        run: npm run dev
       - name: jest
         run: npm test
-      - name: Cypress run
-        uses: cypress-io/github-action@v4
-        with:
-          config: baseUrl=http://localhost:3000
