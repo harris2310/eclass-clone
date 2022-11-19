@@ -20,7 +20,5 @@ jobs:
         run: npm ci --force
       - name: jest
         run: npm test
-      - name: Run Server
-        run: npm run build && npm run start
-      - name: Run Cypress
-        run: npm run cypress
+      - name: Run Server and Cypress
+        run: npm run build && npm run start && npm run cypress
