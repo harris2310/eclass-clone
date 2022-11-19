@@ -2,10 +2,9 @@ name: Unit Tests
 
 on: [push]
 
-env: {
-    NEXTAUTH_URL=http://localhost:3000
-    NEXTAUTH_SECRET=afoianosigbrsuogbosugbog,
-  }
+env:
+  NEXTAUTH_URL: http://localhost:3000
+  NEXTAUTH_SECRET: afoianosigbrsuogbosugbog,
 
 jobs:
   tests:
