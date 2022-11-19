@@ -19,6 +19,6 @@ jobs:
       - name: npm install
         run: npm ci --force
       - name: Run Server
-        run: npm run dev
+        run: npm run build && npm run start
       - name: jest
         run: npm test
