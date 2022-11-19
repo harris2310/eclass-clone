@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 type Courses = {
@@ -29,7 +30,13 @@ function CoursesScreen({ courses }: Courses) {
               return (
                 <tr key={course.name}>
                   <td className='p-2'>
-                    <div>{course.name}</div>
+                    {course.open == true ? (
+                      <div className='text-blue-500 hover:text-blue-800'>
+                        <Link href={`/courses/${course.id}`}>{course.name}</Link>
+                      </div>
+                    ) : (
+                      <div>{course.name}</div>
+                    )}
                   </td>
                   <td className='p-2'>
                     <div>{course.term}</div>

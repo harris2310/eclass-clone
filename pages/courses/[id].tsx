@@ -1,37 +1,41 @@
 import React from "react";
 import HeaderLayout from "../../layouts/HeaderLayout";
+import CourseEachScreen from "../../components/screens/CourseEachScreen";
 import Head from "next/head";
 
 type Props = {
-  announcement: { id: number; date: string; title: string; content: string };
+  course: { id: number; term: number; description: string; name: string; open: boolean };
 };
 
-const DynamicAnn = ({ announcement }: Props) => {
+const Course = ({ course }: Props) => {
   return (
     <>
       <Head>
-        <title>E-class | Announcements</title>
+        <title>E-class | {course.name}</title>
         <meta name='description' content='Has General Announcements if you user is not loggedIn and Course Announcements if user is loggedIn' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <HeaderLayout>
-        <div> hi </div>
+        <CourseEachScreen course={course} />
       </HeaderLayout>
     </>
   );
 };
 
-/*
 export async function getServerSideProps(context: any) {
   let { id } = context.query;
   id = parseInt(id);
-  let announcement = await prisma.announcement.findUnique({
+  let course = await prisma.course.findUnique({
     where: { id: id },
   });
-  announcement = JSON.parse(JSON.stringify(announcement));
-  console.log(announcement);
-  return { props: { announcement } };
+  if (course?.open != true) {
+    return {
+      notFound: true,
+    };
+  }
+  course = JSON.parse(JSON.stringify(course));
+  console.log(course);
+  return { props: { course } };
 }
-*/
 
-export default DynamicAnn;
+export default Course;
