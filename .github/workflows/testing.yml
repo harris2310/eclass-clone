@@ -21,4 +21,4 @@ jobs:
       - name: jest
         run: npm test
       - name: Run Server and Cypress
-        run: npm run build && npm run start && npm run cypress
+        run: npm run dev && npm run cypress
