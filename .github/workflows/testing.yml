@@ -20,5 +20,5 @@ jobs:
         run: npm ci --force
       - name: jest
         run: npm test
-      - name: cypress
-        run: npx cypress run
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
