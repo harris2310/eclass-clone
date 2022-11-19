@@ -18,7 +18,7 @@ function AnnouncementsTable({ generalAnnouncements }: Props) {
           {generalAnnouncements.map((ann: any) => {
             return (
               <tr key={ann.title}>
-                <td className='border border-slate-200 p-3  gap-4'>
+                <td className='border border-slate-200 p-1  gap-2'>
                   <Link href={"/announcements/general/" + ann.id}>
                     <div className='inline-block text-lg text-blue-400 hover:text-blue-800'>{ann.title}</div>
                   </Link>

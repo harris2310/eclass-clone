@@ -13,21 +13,25 @@ type announcements = {
 };
 
 function HomeScreen({ generalAnnouncements }: any) {
+  let result = [];
+  for (let i = 0; i <= generalAnnouncements.length; i = i + 3) {
+    result.push(generalAnnouncements.slice(i, i + 3));
+  }
   const handleClick = () => {
     signOut();
   };
   return (
     <div>
-      <div className='text-xl my-12 p-4'>Pretty good</div>
+      <div className='text-xl my-2 p-4'>Pretty good</div>
       <Tab.Group>
         <Tab.Panels>
           {" "}
           <Tab.Panel>
-            <AnnouncementsTable generalAnnouncements={generalAnnouncements} />
+            <AnnouncementsTable generalAnnouncements={result[0]} />
           </Tab.Panel>
           <Tab.Panel>
             {" "}
-            <AnnouncementsTable generalAnnouncements={generalAnnouncements} />
+            <AnnouncementsTable generalAnnouncements={result[1]} />
           </Tab.Panel>
           <Tab.Panel>Content 3</Tab.Panel>
         </Tab.Panels>
@@ -35,7 +39,6 @@ function HomeScreen({ generalAnnouncements }: any) {
           <PaginTab>1</PaginTab>
           <PaginTab>2</PaginTab>
           <PaginTab>3</PaginTab>
-          <PaginTab>4</PaginTab>
         </Tab.List>
       </Tab.Group>
     </div>

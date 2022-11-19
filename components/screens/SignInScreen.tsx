@@ -34,7 +34,10 @@ const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
               {" "}
               <AnnouncementsTable generalAnnouncements={result[1]} />
             </Tab.Panel>
-            <Tab.Panel>Content 3</Tab.Panel>
+            <Tab.Panel>
+              {" "}
+              <AnnouncementsTable generalAnnouncements={result[2]} />
+            </Tab.Panel>
           </Tab.Panels>
           <Tab.List>
             <PaginTab>1</PaginTab>
@@ -46,7 +49,7 @@ const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
         {Object.values(providers).map((provider: any, i) => {
           return (
             <div key={i}>
-              <Button variant={Variant.Google} onClick={() => signIn(provider.id)} className='flex mx-auto gap-2 my-16'>
+              <Button variant={Variant.Google} onClick={() => signIn(provider.id)} className='flex mx-auto gap-2 my-6'>
                 <Image width='25' height='25' src={googleSVG} alt='google logo' /> <div className='font-semibold'>Sign In With {provider.name}</div>
               </Button>
             </div>
