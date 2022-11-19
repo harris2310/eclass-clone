@@ -2,6 +2,7 @@ import React from "react";
 import GeneralAnnouncementScreen from "../../../components/screens/GeneralAnnouncementScreen";
 import HeaderLayout from "../../../layouts/HeaderLayout";
 import Head from "next/head";
+import prisma from "lib/prismadb";
 
 type Props = {
   announcement: { id: number; date: string; title: string; content: string };

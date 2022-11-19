@@ -2,6 +2,7 @@ import React from "react";
 import HeaderLayout from "../../layouts/HeaderLayout";
 import CourseEachScreen from "../../components/screens/CourseEachScreen";
 import Head from "next/head";
+import prisma from "../../lib/prismadb";
 
 type Props = {
   course: { id: number; term: number; description: string; name: string; open: boolean };

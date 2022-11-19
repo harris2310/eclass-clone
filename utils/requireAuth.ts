@@ -1,7 +1,8 @@
-import { getSession } from "next-auth/react";
+import { unstable_getServerSession } from "next-auth/next";
+import { authOptions } from "pages/api/auth/[...nextauth]";
 
 export async function requireAuth(context: any, cb: any) {
-  const session = await getSession(context);
+  const session = await unstable_getServerSession(context.req, context.res, authOptions);
   if (!session) {
     return {
       redirect: {

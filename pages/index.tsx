@@ -4,6 +4,7 @@ import HomeScreen from "../components/screens/HomeScreen";
 import { useSession, getSession } from "next-auth/react";
 import HeaderLayout from "../layouts/HeaderLayout";
 import { requireAuth } from "../utils/requireAuth";
+import prisma from "../lib/prismadb";
 
 export default function Home({ generalAnnouncements }: any) {
   return (
