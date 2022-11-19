@@ -17,6 +17,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm install
-        run: npm ci --force 
-      - name: tests
+        run: npm ci --force
+      - name: jest
         run: npm test
+      - name: cypress
+        run: npx cypress run
