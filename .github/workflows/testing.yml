@@ -5,7 +5,7 @@ on: [push]
 env:
   NEXTAUTH_URL: http://localhost:3000
   NEXTAUTH_SECRET: afoianosigbrsuogbosugbog,
-  DATABASE_URL: postgresql://postgres:tTxafoi0ymivcvMz7Wuq@containers-us-west-137.railway.app:5701/railway
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
 jobs:
   tests:
