@@ -5,6 +5,7 @@ on: [push]
 env:
   NEXTAUTH_URL: http://localhost:3000
   NEXTAUTH_SECRET: afoianosigbrsuogbosugbog,
+  DATABASE_URL: postgresql://postgres:tTxafoi0ymivcvMz7Wuq@containers-us-west-137.railway.app:5701/railway
 
 jobs:
   tests:
@@ -24,9 +25,8 @@ jobs:
         run: npm ci --force
       - name: jest
         run: npm test
-      #  RUN CYPRESS TESTS - NEED TO RUN DB ON GH ACTIONS CONTAINER
-      #- name: Cypress run
-      #  uses: cypress-io/github-action@v4.1.0 # use the explicit version number
-      #  with:
-      #    build: npm run build
-      #    start: npm start
+      - name: Cypress run
+        uses: cypress-io/github-action@v4.1.0 # use the explicit version number
+        with:
+          build: npm run build
+          start: npm start
