@@ -20,15 +20,8 @@ const providers = [
 ];
 
 describe("Sign in Screen test", () => {
-  test("Check if Providers exist", () => {
-    render(
-      <SignInScreen
-        providers={providers}
-        generalAnnouncements={generalAnnouncements}
-      />
-    );
-    expect(screen.getByText("Sign In With Google")).toHaveTextContent(
-      "Sign In With Google"
-    );
+  test("Check if Providers exist, example test", () => {
+    render(<SignInScreen providers={providers} generalAnnouncements={generalAnnouncements} />);
+    expect(screen.getByText("Sign In With Google")).toHaveTextContent("Sign In With Google");
   });
 });

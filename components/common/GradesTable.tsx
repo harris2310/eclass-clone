@@ -7,31 +7,23 @@ function GradesTable({ courses, grades }: Props) {
     <div>
       {" "}
       <div>
-        <table className="shadow-sm table-fixed w-3/4 text-left my-2 mx-5 text-xl border-separate border-spacing-1">
-          <thead className="bg-gray-200">
-            <tr className="p-4">
-              <th className="p-4">Class Name</th>
-              <th className="p-4">Grade</th>
+        <table className='shadow-sm table-fixed w-3/4 text-left my-2 mx-5 text-xl border-separate border-spacing-1'>
+          <thead className='bg-gray-200'>
+            <tr className='p-4'>
+              <th className='p-4'>Class Name</th>
+              <th className='p-4'>Grade</th>
             </tr>
           </thead>
-          <tbody className="bg-white">
+          <tbody className='bg-white'>
             {courses.map((course) => {
               return (
                 <tr key={course.courseId + course.course}>
-                  <td className="p-4">{course.name}</td>
-                  <td className="p-4">
+                  <td className='p-4'>{course.name}</td>
+                  <td className='p-4'>
                     {grades.map((grade) => (
                       <div key={grade.grade + grade.courseId}>
                         {grade.courseId == course.id ? (
-                          <div
-                            className={
-                              grade.grade >= 5
-                                ? "text-green-600"
-                                : "text-red-600"
-                            }
-                          >
-                            {grade.grade}
-                          </div>
+                          <div className={grade.grade >= 5 ? "text-green-600" : "text-red-600"}>{grade.grade !== null ? <div>{grade.grade}</div> : <div>-</div>}</div>
                         ) : (
                           <div />
                         )}
