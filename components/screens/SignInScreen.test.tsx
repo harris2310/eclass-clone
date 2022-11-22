@@ -1,7 +1,6 @@
 import "@testing-library/jest-dom";
 import SignInScreen from "./SignInScreen";
 import { render, fireEvent, waitFor, screen } from "@testing-library/react";
-import { ReactElement } from "react";
 
 const generalAnnouncements = [
   {
@@ -20,8 +19,10 @@ const providers = [
 ];
 
 describe("Sign in Screen test", () => {
-  test("Check if Providers exist, example test", () => {
+  beforeEach(() => {
     render(<SignInScreen providers={providers} generalAnnouncements={generalAnnouncements} />);
-    expect(screen.getByText("Sign In With Google")).toHaveTextContent("Sign In With Google");
+  });
+  test("Check if Google Sign In button exists", () => {
+    expect(screen.getByText("Sign In With Google")).toBeInTheDocument();
   });
 });

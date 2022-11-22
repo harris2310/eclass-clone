@@ -19,7 +19,9 @@ export default function SignIn({ generalAnnouncements }: Props) {
   useEffect(() => {
     (async () => {
       const res = await getProviders();
-      setProviders(res);
+      if (typeof res !== null) {
+        setProviders(res!);
+      }
     })();
   }, []);
   return (

@@ -37,7 +37,7 @@ const Header = (props: Props) => {
                 <Popover className='fixed top-5 right-5'>
                   <Popover.Button onClick={handleEffect} className={`${effect && "animate-fadeIn"} focus:outline-none`} onAnimationEnd={() => setEffect(false)}>
                     {" "}
-                    <Image className='inline rounded-full' src={session.data?.user?.image} alt='harris' width={40} height={40} />
+                    {session?.data?.user?.image && <Image className='inline rounded-full' src={session.data?.user!.image} alt='harris' width={40} height={40} />}
                   </Popover.Button>
                   <Transition
                     enter='transition duration-100 ease-out'
