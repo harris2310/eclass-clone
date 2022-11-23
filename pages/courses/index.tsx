@@ -4,6 +4,9 @@ import HeaderLayout from "../../layouts/HeaderLayout";
 import CoursesScreen from "../../components/screens/CoursesScreen";
 import { requireAuth } from "../../utils/requireAuth";
 import prisma from "../../lib/prismadb";
+import { unstable_getServerSession } from "next-auth";
+import { authOptions } from "pages/api/auth/[...nextauth]";
+import { PrismaClient } from "@prisma/client";
 
 type Props = {
   courses: Array<{
@@ -33,8 +36,27 @@ const CoursesPage = ({ courses }: Props) => {
 };
 
 export async function getServerSideProps(context: any) {
-  const data = await prisma.course.findMany();
-  const courses = data;
+  const session = await unstable_getServerSession(context.req, context.res, authOptions);
+  let courses;
+  if (!session) {
+    const data = await prisma.course.findMany();
+    courses = data;
+  } else {
+    const email = session.user!.email!;
+    const data = await prisma.student.findMany({
+      include: {
+        courses: true,
+      },
+      where: {
+        email: email,
+      },
+    });
+    const courseIds = data[0].courses.map((c: any) => c.courseId);
+    courses = await prisma.course.findMany({
+      where: { id: { in: courseIds } },
+    });
+    console.log(courses);
+  }
   return { props: { courses } };
 }
 
