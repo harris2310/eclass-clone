@@ -6,10 +6,12 @@ type Props = {
 
 function CourseEachScreen({ course }: Props) {
   return (
-    <div className='flex flex-col gap-7 text-lg p-8'>
-      <div>{course.name}</div>
-      <div>Description: {course.description}</div>
-      <div>Term: {course.term}</div>
+    <div className='mx-auto mt-6 w-8/12'>
+      <div className='bg-gray-100 w-full mx-auto my-8 border-cyan-600 border-2 p-6'>
+        <div className='font-bold my-2 text-xl'>{course.name}</div>
+        <div className='text-cyan-700 my-2'>Term: {course.term}</div>
+        <div className='mt-12 text-lg'>{course.description}</div>
+      </div>
     </div>
   );
 }
