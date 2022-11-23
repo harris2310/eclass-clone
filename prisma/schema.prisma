@@ -67,6 +67,7 @@ model Course {
   description   String
   open          Boolean
   announcements Announcement[]
+  students CoursesOnStudents[]
 }
 
 model Student {
@@ -75,6 +76,16 @@ model Student {
   lastName          String
   email             String
   grades     Grade[]
+  courses CoursesOnStudents[]
+}
+
+model CoursesOnStudents {
+  student Student @relation(fields: [studentId], references: [id])
+  studentId Int
+  course Course @relation(fields: [courseId], references: [id])
+  courseId Int
+
+  @@id([studentId, courseId])
 }
 
 model Announcement {
