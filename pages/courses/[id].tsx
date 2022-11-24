@@ -5,7 +5,7 @@ import Head from "next/head";
 import prisma from "../../lib/prismadb";
 
 type Props = {
-  course: { id: number; term: number; description: string; name: string; open: boolean; annonuncements: Array<object> };
+  course: { id: number; term: number; description: string; name: string; open: boolean; annonuncements: Array<Object> };
 };
 
 const Course = ({ course }: Props) => {
