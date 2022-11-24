@@ -28,6 +28,13 @@ function AnnouncementsTable({ generalAnnouncements }: Props) {
               </tr>
             );
           })}
+          {generalAnnouncements.length == 0 && (
+            <tr>
+              <td className='border border-slate-200 p-1  gap-2'>
+                <div className='inline-block text-lg text-blue-400 hover:text-blue-800'></div>
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </>
