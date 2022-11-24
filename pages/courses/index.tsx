@@ -39,9 +39,11 @@ export async function getServerSideProps(context: any) {
   const session = await unstable_getServerSession(context.req, context.res, authOptions);
   let courses;
   if (!session) {
+    // return all courses
     const data = await prisma.course.findMany();
     courses = data;
   } else {
+    // return student's courses
     const email = session.user!.email!;
     const data = await prisma.student.findMany({
       include: {
