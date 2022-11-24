@@ -6,7 +6,9 @@ import { requireAuth } from "../../utils/requireAuth";
 import prisma from "../../lib/prismadb";
 import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "pages/api/auth/[...nextauth]";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Session } from "@prisma/client";
+import { useSession } from "next-auth/react";
+import CoursesUserScreen from "components/screens/CoursesUserScreen";
 
 type Props = {
   courses: Array<{
@@ -19,6 +21,7 @@ type Props = {
 };
 
 const CoursesPage = ({ courses }: Props) => {
+  const session = useSession();
   courses.sort((a, b) => (a.term > b.term ? 1 : -1));
   return (
     <div>
@@ -29,7 +32,7 @@ const CoursesPage = ({ courses }: Props) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <HeaderLayout>
-        <CoursesScreen courses={courses} />
+        {session == undefined && <CoursesScreen courses={courses} />} {session && <CoursesUserScreen courses={courses} />}
       </HeaderLayout>
     </div>
   );
@@ -59,7 +62,7 @@ export async function getServerSideProps(context: any) {
     });
     console.log(courses);
   }
-  return { props: { courses } };
+  return { props: { session, courses } };
 }
 
 export default CoursesPage;
