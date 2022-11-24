@@ -21,7 +21,6 @@ function CoursesUserScreen({ courses }: Props) {
             <tr className='p-2'>
               <th className='p-2 w-10/12'>Class Name</th>
               <th className='p-2'>Term</th>
-              <th className='p-2'>Type</th>
             </tr>
           </thead>
           <tbody className='bg-white '>
@@ -31,19 +30,12 @@ function CoursesUserScreen({ courses }: Props) {
                 return (
                   <tr key={course.name}>
                     <td className='p-2'>
-                      {course.open == true ? (
-                        <div className='text-blue-500 hover:text-blue-800'>
-                          <Link href={`/courses/${course.id}`}>{course.name}</Link>
-                        </div>
-                      ) : (
-                        <div>{course.name}</div>
-                      )}
+                      <div className='text-blue-500 hover:text-blue-800'>
+                        <Link href={`/courses/${course.id}`}>{course.name}</Link>
+                      </div>
                     </td>
                     <td className='p-2'>
                       <div>{course.term}</div>
-                    </td>
-                    <td className='p-2'>
-                      <div>{course.open == true ? <div>Open</div> : <div>Closed</div>}</div>
                     </td>
                   </tr>
                 );

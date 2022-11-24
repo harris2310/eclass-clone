@@ -12,7 +12,6 @@ type Courses = {
 };
 
 function CoursesScreen({ courses }: Courses) {
-  console.log(courses);
   return (
     <div>
       <table className='shadow-sm table-fixed w-3/5 text-left my-8 mx-8 border-separate border-spacing-1'>

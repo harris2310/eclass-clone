@@ -3,6 +3,8 @@ import HeaderLayout from "../../layouts/HeaderLayout";
 import CourseEachScreen from "../../components/screens/CourseEachScreen";
 import Head from "next/head";
 import prisma from "../../lib/prismadb";
+import { unstable_getServerSession } from "next-auth";
+import { authOptions } from "pages/api/auth/[...nextauth]";
 
 type Props = {
   course: { id: number; term: number; description: string; name: string; open: boolean; announcements: Array<Object> };
@@ -24,19 +26,23 @@ const Course = ({ course }: Props) => {
 };
 
 export async function getServerSideProps(context: any) {
+  const session = unstable_getServerSession(context.req, context.res, authOptions);
   let { id } = context.query;
   id = parseInt(id);
   let course = await prisma.course.findUnique({
     where: { id: id },
     include: { announcements: true },
   });
-  if (course?.open != true) {
-    return {
-      notFound: true,
-    };
+  {
+  }
+  if (!session) {
+    if (course?.open != true) {
+      return {
+        notFound: true,
+      };
+    }
   }
   course = JSON.parse(JSON.stringify(course));
-  console.log(course);
   return { props: { course } };
 }
 

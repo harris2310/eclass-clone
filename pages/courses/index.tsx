@@ -60,7 +60,7 @@ export async function getServerSideProps(context: any) {
     courses = await prisma.course.findMany({
       where: { id: { in: courseIds } },
     });
-    console.log(courses);
+    courses;
   }
   return { props: { session, courses } };
 }
