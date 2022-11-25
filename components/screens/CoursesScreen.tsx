@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { useSession } from "next-auth/react";
 
 type Courses = {
   courses: Array<{
@@ -12,6 +13,7 @@ type Courses = {
 };
 
 function CoursesScreen({ courses }: Courses) {
+  const session = useSession();
   return (
     <div>
       <table className='shadow-sm table-fixed w-3/5 text-left my-8 mx-8 border-separate border-spacing-1'>
