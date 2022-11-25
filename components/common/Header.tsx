@@ -15,7 +15,7 @@ const Header = (props: Props) => {
   const handleClick = () => {
     signOut();
   };
-  const handleSettingsClick = () => {
+  const handleAccountClick = () => {
     console.log("hi");
   };
   return (
@@ -50,8 +50,8 @@ const Header = (props: Props) => {
                     <Popover.Panel className='absolute left-1/2 z-10 mt-3 max-w-xs -translate-x-32 transform px-4 sm:px-0'>
                       <div className='overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5'>
                         <div className='bg-white p-5 text-center w-40'>
-                          <button onClick={handleSettingsClick} className='-m-3 w-full px-2 border border-gray-200 text-center font-medium rounded-lg p-3 hover:cursor-pointer hover:bg-gray-100'>
-                            Settings
+                          <button onClick={handleAccountClick} className='-m-3 w-full px-2 border border-gray-200 text-center font-medium rounded-lg p-3 hover:cursor-pointer hover:bg-gray-100'>
+                            <Link href={`/account`}>Account</Link>
                           </button>
                         </div>
                         <div className='bg-white p-5 text-center w-40'>

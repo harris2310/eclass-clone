@@ -74,7 +74,8 @@ model Student {
   id                Int   @id @default(autoincrement())
   firstName         String
   lastName          String
-  email             String
+  email             String @unique
+  year              Int
   grades     Grade[]
   courses CoursesOnStudents[]
 }
