@@ -76,6 +76,7 @@ model Student {
   lastName          String
   email             String @unique
   year              Int
+  birthPlace        String 
   grades     Grade[]
   courses CoursesOnStudents[]
 }
