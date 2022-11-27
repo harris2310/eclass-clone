@@ -11,7 +11,7 @@ function AnnouncementsTable({ generalAnnouncements }: Props) {
       <table className='table-auto w-8/12 mx-auto border-separate border-spacing-y-4 border-slate-400 '>
         <thead>
           <tr className='border border-slate-400'>
-            <th className='p-3 bg-gray-200'>Daily Announcements</th>
+            <th className='p-3 bg-gray-200'>Announcements</th>
           </tr>
         </thead>
         <tbody>

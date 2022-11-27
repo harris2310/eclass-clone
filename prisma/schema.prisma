@@ -53,11 +53,11 @@ model VerificationToken {
 }
 
 model Grade {
-  courseId      Int 
-  student       Student @relation(fields: [studentId], references: [id])
-  studentId     Int
+  courseId      Int  
+  studentId     Int 
+  courseOnStudent CoursesOnStudents @relation(fields: [studentId, courseId], references: [studentId, courseId])
   grade         Float
-  @@id([courseId, studentId])
+  @@unique([studentId, courseId])
 }
 
 model Course {
@@ -77,7 +77,6 @@ model Student {
   email             String @unique
   year              Int
   birthPlace        String 
-  grades     Grade[]
   courses CoursesOnStudents[]
 }
 
@@ -86,7 +85,8 @@ model CoursesOnStudents {
   studentId Int
   course Course @relation(fields: [courseId], references: [id])
   courseId Int
-
+  grade Grade?
+  @@unique([studentId, courseId])
   @@id([studentId, courseId])
 }
 
