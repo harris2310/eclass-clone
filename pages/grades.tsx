@@ -10,7 +10,7 @@ type Props = {
   grades: Array<{
     courseId: number;
     studentId: number;
-    grade: number;
+    grade: object;
   }>;
   courses: Array<{
     id: number;
@@ -43,9 +43,10 @@ export async function getServerSideProps(context: any) {
     const courses = await prisma.course.findMany();
     const data = await prisma.student.findMany({
       where: { email: email },
-      include: { grades: true },
+      include: { courses: { include: { grade: { select: { grade: true } } } } },
     });
-    const grades = data[0].grades;
+    console.log(data[0].courses);
+    const grades = data[0].courses;
     let coursesToFind: Array<number> = [];
     return { props: { grades, courses } };
   });

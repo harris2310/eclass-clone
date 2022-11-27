@@ -6,7 +6,7 @@ type Props = {
   grades: Array<{
     courseId: number;
     studentId: number;
-    grade: number;
+    grade: object;
   }>;
   courses: Array<{
     id: number;
