@@ -13,7 +13,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user }) {
+    async signIn({ user, account }: any) {
       console.log(user);
       const isStudent = await prisma.student.findUnique({
         where: { email: user.email! },
