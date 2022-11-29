@@ -36,7 +36,7 @@ const GradesScreen = ({ grades }: Props) => {
       </Tab.List>
       <Tab.Panels>
         <Tab.Panel>
-          <GradesTable grades={term1} />;
+          <GradesTable grades={term1} />
         </Tab.Panel>
         <Tab.Panel>
           <GradesTable grades={term2} />

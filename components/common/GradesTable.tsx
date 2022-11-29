@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 type Props = { grades: Array<any> };
 
@@ -18,11 +19,15 @@ function GradesTable({ grades }: Props) {
             {grades.map((grade) => {
               return (
                 <tr key={grade.course.id + grade.course.term}>
-                  <td className='p-4'>{grade.course.name}</td>
+                  <td className='text-blue-500 hover:text-blue-800 p-4'>
+                    <Link href={`/courses/${grade.course.id}`}>{grade.course.name}</Link>
+                  </td>
                   <td className='p-4'>
                     {grades.map((grade) => (
                       <div key={grade.grade.grade + grade.courseId}>
-                        <div className={grade.grade.grade >= 5 ? "text-green-600" : "text-red-600"}>{grade.grade.grade !== null ? <div>{grade.grade.grade}</div> : <div>-</div>}</div>
+                        <div className={grade.grade.grade >= 5 ? "text-green-600" : "text-red-600"}>
+                          {grade.grade.grade !== 0 ? <div>{grade.grade.grade}</div> : <div className='text-black'>-</div>}
+                        </div>
                       </div>
                     ))}
                   </td>
