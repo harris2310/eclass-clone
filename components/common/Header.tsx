@@ -22,7 +22,7 @@ const Header = (props: Props) => {
     <div>
       <nav className='flex items-center justify-evenly flex-wrap bg-cyan-600 p-6'>
         <Link href='/' className='block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-8'>
-          <span className='font-semibold text-xl tracking-tight'>E-Class</span>
+          <span className='font-semibold text-xl tracking-tight'>Hanozi-Class</span>
         </Link>
         <div className='w-full block flex-grow lg:flex lg:items-center lg:w-auto text-right px-16'>
           <div className='text-sm lg:flex-grow'>

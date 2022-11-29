@@ -22,7 +22,7 @@ const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
     <>
       <div className='mx-auto mt-6'>
         <div className='bg-gray-100 text w-8/12 mx-auto my-4 border-cyan-600 border-2 p-2'>
-          The eClass platform is a complete Electronic Course Management System. Access to the service is done using a simple web browser.
+          The Hanozi-Class platform is a complete Electronic Course Management System. Access to the service is done using a simple web browser.
         </div>
         <Tab.Group>
           <Tab.Panels>
