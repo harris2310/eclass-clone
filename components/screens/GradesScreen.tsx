@@ -2,28 +2,27 @@ import React from "react";
 import { Tab } from "@headlessui/react";
 import GradesTable from "../common/GradesTable";
 
+const terms: Array<string> = ["Term 1", "Term 2", "Term 3", "Term 4"];
+
 type Props = {
   grades: Array<{
-    courseId: number;
-    studentId: number;
+    course: {
+      id: number;
+      name: string;
+      term: number;
+      description: string;
+      open: boolean;
+    };
     grade: object;
-  }>;
-  courses: Array<{
-    id: number;
-    name: string;
-    term: number;
-    description: string;
-    open: boolean;
   }>;
 };
 
-const terms: Array<string> = ["Term 1", "Term 2", "Term 3", "Term 4"];
-
-const GradesScreen = ({ grades, courses }: Props) => {
-  const term1 = courses.filter((course) => course.term == 1);
-  const term2 = courses.filter((course) => course.term == 2);
-  const term3 = courses.filter((course) => course.term == 3);
-  const term4 = courses.filter((course) => course.term == 4);
+const GradesScreen = ({ grades }: Props) => {
+  for (let i = 0; i <= grades.length; i++) {}
+  const term1 = grades.filter((grade) => grade.course.term == 1);
+  const term2 = grades.filter((grade) => grade.course.term == 2);
+  const term3 = grades.filter((grade) => grade.course.term == 3);
+  const term4 = grades.filter((grade) => grade.course.term == 4);
   return (
     <Tab.Group>
       <Tab.List className='p-4 flex gap-4 mx-auto my-4 text-2xl font-semibold'>
@@ -37,16 +36,16 @@ const GradesScreen = ({ grades, courses }: Props) => {
       </Tab.List>
       <Tab.Panels>
         <Tab.Panel>
-          <GradesTable courses={term1} grades={grades} />;
+          <GradesTable grades={term1} />;
         </Tab.Panel>
         <Tab.Panel>
-          <GradesTable courses={term2} grades={grades} />
+          <GradesTable grades={term2} />
         </Tab.Panel>
         <Tab.Panel>
-          <GradesTable courses={term3} grades={grades} />
+          <GradesTable grades={term3} />
         </Tab.Panel>
         <Tab.Panel>
-          <GradesTable courses={term4} grades={grades} />
+          <GradesTable grades={term4} />
         </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>

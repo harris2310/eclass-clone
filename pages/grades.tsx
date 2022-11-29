@@ -8,20 +8,18 @@ import { authOptions } from "./api/auth/[...nextauth]";
 
 type Props = {
   grades: Array<{
-    courseId: number;
-    studentId: number;
+    course: {
+      id: number;
+      name: string;
+      term: number;
+      description: string;
+      open: boolean;
+    };
     grade: object;
-  }>;
-  courses: Array<{
-    id: number;
-    name: string;
-    term: number;
-    description: string;
-    open: boolean;
   }>;
 };
 
-export default function Home({ grades, courses }: Props) {
+export default function Home({ grades }: Props) {
   return (
     <div>
       <Head>
@@ -30,7 +28,7 @@ export default function Home({ grades, courses }: Props) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <HeaderLayout>
-        <GradesScreen grades={grades} courses={courses} />
+        <GradesScreen grades={grades} />
       </HeaderLayout>
     </div>
   );
@@ -40,14 +38,13 @@ export async function getServerSideProps(context: any) {
   return requireAuth(context, async () => {
     const session = await unstable_getServerSession(context.req, context.res, authOptions);
     const email = session!.user!.email!;
-    const courses = await prisma.course.findMany();
     const data = await prisma.student.findMany({
       where: { email: email },
-      include: { courses: { include: { grade: { select: { grade: true } } } } },
+      select: { courses: { select: { course: true, grade: { select: { grade: true } } } } },
     });
     console.log(data[0].courses);
     const grades = data[0].courses;
     let coursesToFind: Array<number> = [];
-    return { props: { grades, courses } };
+    return { props: { grades } };
   });
 }

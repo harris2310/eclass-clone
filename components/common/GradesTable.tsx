@@ -1,8 +1,8 @@
 import React from "react";
 
-type Props = { courses: Array<any>; grades: Array<any> };
+type Props = { grades: Array<any> };
 
-function GradesTable({ courses, grades }: Props) {
+function GradesTable({ grades }: Props) {
   return (
     <div>
       {" "}
@@ -15,18 +15,14 @@ function GradesTable({ courses, grades }: Props) {
             </tr>
           </thead>
           <tbody className='bg-white'>
-            {courses.map((course) => {
+            {grades.map((grade) => {
               return (
-                <tr key={course.courseId + course.course}>
-                  <td className='p-4'>{course.name}</td>
+                <tr key={grade.course.id + grade.course.term}>
+                  <td className='p-4'>{grade.course.name}</td>
                   <td className='p-4'>
                     {grades.map((grade) => (
                       <div key={grade.grade.grade + grade.courseId}>
-                        {grade.courseId == course.id ? (
-                          <div className={grade.grade.grade >= 5 ? "text-green-600" : "text-red-600"}>{grade.grade.grade !== null ? <div>{grade.grade.grade}</div> : <div>-</div>}</div>
-                        ) : (
-                          <div />
-                        )}
+                        <div className={grade.grade.grade >= 5 ? "text-green-600" : "text-red-600"}>{grade.grade.grade !== null ? <div>{grade.grade.grade}</div> : <div>-</div>}</div>
                       </div>
                     ))}
                   </td>
