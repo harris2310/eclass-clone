@@ -1,6 +1,11 @@
 # eclass-clone
 
-The E-Class platform is a complete Electronic Course Management System. Access to the service is done using a simple web browser without the need for external applications
+The Hanozi-Class platform is a complete Electronic Course Management System. Access to the service is done using a simple web browser without the need for external applications
+
+## Deployment
+
+The app is hosted on hanoziclass.live on vercel servers. PostgresDB is hosted on Railway
+A few tests are run on every repo push
 
 ## To-Do
 

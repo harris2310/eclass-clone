@@ -12,7 +12,7 @@ const DynamicAnn = ({ announcement }: Props) => {
   return (
     <>
       <Head>
-        <title>E-class | Announcements</title>
+        <title>Hanozi-Class | Announcements</title>
         <meta name='description' content='Has General Announcements if you user is not loggedIn and Course Announcements if user is loggedIn' />
         <link rel='icon' href='/favicon.ico' />
       </Head>

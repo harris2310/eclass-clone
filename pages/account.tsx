@@ -15,7 +15,7 @@ function Account({ student }: Props) {
   return (
     <div>
       <Head>
-        <title>E-class | Account</title>
+        <title>Hanozi-Class | Account</title>
         <meta name='description' content='Account page' />
         <link rel='icon' href='/favicon.ico' />
       </Head>

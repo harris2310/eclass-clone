@@ -14,7 +14,7 @@ const Course = ({ course }: Props) => {
   return (
     <>
       <Head>
-        <title>{`E-class | ${course.name}`}</title>
+        <title>{`Hanozi-Class | ${course.name}`}</title>
         <meta name='description' content='Has General Announcements if you user is not loggedIn and Course Announcements if user is loggedIn' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
