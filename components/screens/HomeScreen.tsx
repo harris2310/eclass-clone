@@ -17,9 +17,6 @@ function HomeScreen({ generalAnnouncements }: any) {
   for (let i = 0; i <= generalAnnouncements.length; i = i + 3) {
     result.push(generalAnnouncements.slice(i, i + 3));
   }
-  const handleClick = () => {
-    signOut();
-  };
   return (
     <div>
       <div className='text-xl my-2 p-4'>Pretty good</div>

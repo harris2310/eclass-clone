@@ -31,7 +31,7 @@ const Header = (props: Props) => {
             </Link>
             {session.status == "authenticated" && (
               <>
-                <Link href='/grades' className='block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-8'>
+                <Link data-testid='grades-link' href='/grades' className='block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-8'>
                   Grades
                 </Link>
                 <Popover className='fixed top-5 right-5'>
