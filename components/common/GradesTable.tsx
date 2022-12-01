@@ -23,13 +23,9 @@ function GradesTable({ grades }: Props) {
                     <Link href={`/courses/${grade.course.id}`}>{grade.course.name}</Link>
                   </td>
                   <td className='p-4'>
-                    {grades.map((grade) => (
-                      <div key={grade.grade.grade + grade.courseId}>
-                        <div className={grade.grade.grade >= 5 ? "text-green-600" : "text-red-600"}>
-                          {grade.grade.grade !== 0 ? <div>{grade.grade.grade}</div> : <div className='text-black'>-</div>}
-                        </div>
-                      </div>
-                    ))}
+                    <div key={grade.grade.grade + grade.courseId}>
+                      <div className={grade.grade.grade >= 5 ? "text-green-600" : "text-red-600"}>{grade.grade.grade !== 0 ? <div>{grade.grade.grade}</div> : <div className='text-black'>-</div>}</div>
+                    </div>
                   </td>
                 </tr>
               );

@@ -10,7 +10,7 @@ type Props = {
 };
 
 const exampleProvider = {
-  google: { id: "google", name: "jij", type: "oauth", signinUrl: "http://localhost:3000/api/auth/signin/google", callbackUrl: "http://localhost:3000/api/auth/callback/google" },
+  google: { id: "google", name: "Google", type: "oauth", signinUrl: "http://localhost:3000/api/auth/signin/google", callbackUrl: "http://localhost:3000/api/auth/callback/google" },
 };
 
 export default function SignIn({ generalAnnouncements }: Props) {

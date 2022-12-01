@@ -33,7 +33,10 @@ function HomeScreen({ generalAnnouncements }: any) {
             {" "}
             <AnnouncementsTable generalAnnouncements={result[1]} />
           </Tab.Panel>
-          <Tab.Panel>Content 3</Tab.Panel>
+          <Tab.Panel>
+            {" "}
+            <AnnouncementsTable generalAnnouncements={result[2]} />
+          </Tab.Panel>
         </Tab.Panels>
         <Tab.List>
           <PaginTab>1</PaginTab>
