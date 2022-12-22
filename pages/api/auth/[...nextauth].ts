@@ -25,7 +25,7 @@ export const authOptions: NextAuthOptions = {
             firstName: user.name,
             lastName: " ",
             email: user.email,
-            year: 2000,
+            year: 1,
             birthPlace: "N/A",
           },
         });
