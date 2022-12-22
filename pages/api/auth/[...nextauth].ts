@@ -16,10 +16,19 @@ export const authOptions: NextAuthOptions = {
     async signIn({ user, account }: any) {
       console.log(user);
       const isStudent = await prisma.student.findUnique({
-        where: { email: user.email! },
+        where: { email: user.email },
       });
       if (isStudent == undefined) {
         console.log("NOT A STUDENT");
+        const createStudent = await prisma.student.create({
+          data: {
+            firstName: user.name,
+            lastName: " ",
+            email: user.email,
+            year: 2000,
+            birthPlace: "N/A",
+          },
+        });
       }
       return user;
     },
