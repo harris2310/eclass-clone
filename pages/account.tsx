@@ -6,11 +6,10 @@ import prisma from "../lib/prismadb";
 import { requireAuth } from "utils/requireAuth";
 import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]";
-import Image from "next/image";
 import AccountScreen from "components/screens/AccountScreen";
-type Props = { student: { id: number; firstName: string; lastName: string; email: string; year: number; birthPlace: string } };
+import type { Account } from "types";
 
-function Account({ student }: Props) {
+function Account({ student }: Account) {
   const session = useSession();
   return (
     <div>

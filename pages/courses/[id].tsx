@@ -5,12 +5,9 @@ import Head from "next/head";
 import prisma from "../../lib/prismadb";
 import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "pages/api/auth/[...nextauth]";
+import type { CourseEach } from "types";
 
-type Props = {
-  course: { id: number; term: number; description: string; name: string; open: boolean; announcements: Array<Object> };
-};
-
-const Course = ({ course }: Props) => {
+const Course = ({ course }: CourseEach) => {
   return (
     <>
       <Head>

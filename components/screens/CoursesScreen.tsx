@@ -1,16 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { useSession } from "next-auth/react";
-
-type Courses = {
-  courses: Array<{
-    id: number;
-    name: string;
-    term: number;
-    description: string;
-    open: boolean;
-  }>;
-};
+import type { Courses } from "types";
 
 function CoursesScreen({ courses }: Courses) {
   const session = useSession();

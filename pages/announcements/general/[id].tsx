@@ -3,12 +3,9 @@ import GeneralAnnouncementScreen from "../../../components/screens/GeneralAnnoun
 import HeaderLayout from "../../../layouts/HeaderLayout";
 import Head from "next/head";
 import prisma from "lib/prismadb";
+import type { AnnouncementEach } from "types";
 
-type Props = {
-  announcement: { id: number; date: string; title: string; content: string };
-};
-
-const DynamicAnn = ({ announcement }: Props) => {
+const DynamicAnn = ({ announcement }: AnnouncementEach) => {
   return (
     <>
       <Head>

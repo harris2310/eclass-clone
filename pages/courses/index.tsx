@@ -9,18 +9,9 @@ import { authOptions } from "pages/api/auth/[...nextauth]";
 import { PrismaClient, Session } from "@prisma/client";
 import { useSession } from "next-auth/react";
 import CoursesUserScreen from "components/screens/CoursesUserScreen";
+import type { Courses } from "types";
 
-type Props = {
-  courses: Array<{
-    id: number;
-    name: string;
-    term: number;
-    description: string;
-    open: boolean;
-  }>;
-};
-
-const CoursesPage = ({ courses }: Props) => {
+const CoursesPage = ({ courses }: Courses) => {
   const session = useSession();
   console.log(session);
   courses.sort((a, b) => (a.term > b.term ? 1 : -1));

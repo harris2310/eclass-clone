@@ -3,16 +3,11 @@ import { signOut } from "next-auth/react";
 import { Tab } from "@headlessui/react";
 import PaginTab from "../common/PaginTab";
 import AnnouncementsTable from "../common/AnnouncementsTable";
+import type { AnnouncementEach } from "types";
 
-type Props = {};
+type Props = { generalAnnouncements: Array<AnnouncementEach> };
 
-type announcements = {
-  title: string;
-  date: string;
-  announcement: string;
-};
-
-function HomeScreen({ generalAnnouncements }: any) {
+function HomeScreen({ generalAnnouncements }: Props) {
   let result = [];
   for (let i = 0; i <= generalAnnouncements.length; i = i + 3) {
     result.push(generalAnnouncements.slice(i, i + 3));

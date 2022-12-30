@@ -5,21 +5,9 @@ import GradesScreen from "../components/screens/GradesScreen";
 import { requireAuth } from "../utils/requireAuth";
 import prisma from "../lib/prismadb";
 import { authOptions } from "./api/auth/[...nextauth]";
+import type { Grades } from "types";
 
-type Props = {
-  grades: Array<{
-    course: {
-      id: number;
-      name: string;
-      term: number;
-      description: string;
-      open: boolean;
-    };
-    grade: object;
-  }>;
-};
-
-export default function Home({ grades }: Props) {
+export default function Home({ grades }: Grades) {
   return (
     <div>
       <Head>
@@ -42,7 +30,6 @@ export async function getServerSideProps(context: any) {
       where: { email: email },
       select: { courses: { select: { course: true, grade: { select: { grade: true } } } } },
     });
-    console.log(data[0].courses);
     const grades = data[0].courses;
     let coursesToFind: Array<number> = [];
     return { props: { grades } };

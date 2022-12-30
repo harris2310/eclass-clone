@@ -30,7 +30,6 @@ type Props = {
 
 const CoursesPage = ({ courses, myCourses }: Props) => {
   const session = useSession();
-  console.log(session);
   courses.sort((a, b) => (a.term > b.term ? 1 : -1));
   return (
     <div>

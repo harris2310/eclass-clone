@@ -1,8 +1,9 @@
 import Link from "next/link";
 import React from "react";
+import type { AnnouncementEach } from "types";
 
 type Props = {
-  generalAnnouncements: Array<Object>;
+  generalAnnouncements: Array<AnnouncementEach>;
 };
 
 function AnnouncementsTable({ generalAnnouncements }: Props) {

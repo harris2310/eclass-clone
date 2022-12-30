@@ -1,11 +1,8 @@
 import React from "react";
 import AnnouncementsTable from "components/common/AnnouncementsTable";
+import type { CourseEach } from "types";
 
-type Props = {
-  course: { id: number; term: number; description: string; name: string; open: boolean; announcements: Array<Object> };
-};
-
-function CourseEachScreen({ course }: Props) {
+function CourseEachScreen({ course }: CourseEach) {
   return (
     <div className='mx-auto mt-6 w-8/12'>
       <div className='bg-gray-100 w-full mx-auto my-12 border-cyan-600 border-2 p-6'>

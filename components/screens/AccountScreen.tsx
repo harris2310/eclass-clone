@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import type { Account } from "types";
 
-type Props = { session: any; student: { id: number; firstName: string; lastName: string; email: string; year: number; birthPlace: string } };
+type Props = { session: any } & Account;
 
 function AccountScreen({ session, student }: Props) {
   return (

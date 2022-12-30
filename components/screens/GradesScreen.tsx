@@ -1,23 +1,11 @@
 import React from "react";
 import { Tab } from "@headlessui/react";
 import GradesTable from "../common/GradesTable";
+import type { Grades } from "types";
 
 const terms: Array<string> = ["Term 1", "Term 2", "Term 3", "Term 4"];
 
-type Props = {
-  grades: Array<{
-    course: {
-      id: number;
-      name: string;
-      term: number;
-      description: string;
-      open: boolean;
-    };
-    grade: object;
-  }>;
-};
-
-const GradesScreen = ({ grades }: Props) => {
+const GradesScreen = ({ grades }: Grades) => {
   for (let i = 0; i <= grades.length; i++) {}
   const term1 = grades.filter((grade) => grade.course.term == 1);
   const term2 = grades.filter((grade) => grade.course.term == 2);
