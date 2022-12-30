@@ -1,7 +1,11 @@
 import React from "react";
 import type { AnnouncementEach } from "types";
 
-function GeneralAnnouncementScreen({ announcement }: AnnouncementEach) {
+type Props = {
+  announcement: AnnouncementEach;
+};
+
+function GeneralAnnouncementScreen({ announcement }: Props) {
   return (
     <div className='mx-auto mt-6 w-8/12'>
       <div className='bg-gray-100 w-full mx-auto my-8 border-cyan-600 border-2 p-6'>

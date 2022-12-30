@@ -18,6 +18,7 @@ type Courses = {
     term: number;
     description: string;
     open: boolean;
+    announcements: Announcements;
   }>;
 };
 
@@ -28,7 +29,7 @@ type CourseEach = {
     description: string;
     name: string;
     open: boolean;
-    announcements: Array<Object>;
+    announcements: Announcements;
   };
 };
 
@@ -44,12 +45,12 @@ type Account = {
 };
 
 type AnnouncementEach = {
-  announcement: {
-    id: number;
-    date: string;
-    title: string;
-    content: string;
-  };
+  id: number;
+  date: string;
+  title: string;
+  content: string;
 };
 
-export type { Grades, Courses, CourseEach, Account, AnnouncementEach };
+type Announcements = Array<AnnouncementEach>;
+
+export type { Grades, Courses, CourseEach, Account, AnnouncementEach, Announcements };

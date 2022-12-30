@@ -1,12 +1,15 @@
 import Head from "next/head";
-import LoginScreen from "../components/screens/SignInScreen";
 import HomeScreen from "../components/screens/HomeScreen";
-import { useSession, getSession } from "next-auth/react";
 import HeaderLayout from "../layouts/HeaderLayout";
 import { requireAuth } from "../utils/requireAuth";
 import prisma from "../lib/prismadb";
+import type { AnnouncementEach } from "types";
 
-export default function Home({ generalAnnouncements }: any) {
+type Props = {
+  generalAnnouncements: Array<AnnouncementEach>;
+};
+
+export default function Home({ generalAnnouncements }: Props) {
   return (
     <div>
       <Head>

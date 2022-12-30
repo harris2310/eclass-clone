@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
-import type { AnnouncementEach } from "types";
+import type { Announcements } from "types";
 
 type Props = {
-  generalAnnouncements: Array<AnnouncementEach>;
+  generalAnnouncements: Announcements;
 };
 
 function AnnouncementsTable({ generalAnnouncements }: Props) {
@@ -16,7 +16,7 @@ function AnnouncementsTable({ generalAnnouncements }: Props) {
           </tr>
         </thead>
         <tbody>
-          {generalAnnouncements.map((ann: any) => {
+          {generalAnnouncements.map((ann) => {
             return (
               <tr key={ann.title}>
                 <td className='border border-slate-200 p-1  gap-2'>

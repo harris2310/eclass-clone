@@ -5,7 +5,11 @@ import Head from "next/head";
 import prisma from "lib/prismadb";
 import type { AnnouncementEach } from "types";
 
-const DynamicAnn = ({ announcement }: AnnouncementEach) => {
+type Props = {
+  announcement: AnnouncementEach;
+};
+
+const DynamicAnn = ({ announcement }: Props) => {
   return (
     <>
       <Head>
