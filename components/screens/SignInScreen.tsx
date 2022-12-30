@@ -7,10 +7,11 @@ import PaginTab from "../common/PaginTab";
 import AnnouncementsTable from "../common/AnnouncementsTable";
 import Image from "next/image";
 import googleSVG from "../../assets/google_icon.svg";
+import type { Announcements } from "types";
 
 type Props = {
   providers: any;
-  generalAnnouncements: Array<Object>;
+  generalAnnouncements: Announcements;
 };
 
 const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
