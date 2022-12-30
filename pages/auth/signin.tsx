@@ -4,9 +4,10 @@ import { getProviders } from "next-auth/react";
 import SignInScreen from "../../components/screens/SignInScreen";
 import HeaderLayout from "../../layouts/HeaderLayout";
 import { PrismaClient } from "@prisma/client";
+import type { Announcements } from "types";
 
 type Props = {
-  generalAnnouncements: Array<Object>;
+  generalAnnouncements: Announcements;
 };
 
 const exampleProvider = {
