@@ -7,7 +7,7 @@ import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "pages/api/auth/[...nextauth]";
 import type { CourseEach } from "types";
 
-const Course = ({ course }: CourseEach) => {
+const Course = ({ course }: { course: CourseEach }) => {
   return (
     <>
       <Head>

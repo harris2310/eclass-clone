@@ -3,7 +3,7 @@ import React from "react";
 import { useSession } from "next-auth/react";
 import type { Courses } from "types";
 
-function CoursesScreen({ courses }: Courses) {
+function CoursesScreen({ courses }: { courses: Courses }) {
   const session = useSession();
   return (
     <div>

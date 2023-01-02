@@ -5,7 +5,7 @@ import type { Grades } from "types";
 
 const terms: Array<string> = ["Term 1", "Term 2", "Term 3", "Term 4"];
 
-const GradesScreen = ({ grades }: Grades) => {
+const GradesScreen = ({ grades }: { grades: Grades }) => {
   for (let i = 0; i <= grades.length; i++) {}
   const term1 = grades.filter((grade) => grade.course.term == 1);
   const term2 = grades.filter((grade) => grade.course.term == 2);

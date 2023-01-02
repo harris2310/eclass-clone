@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import type { Grades } from "types";
 
-function GradesTable({ grades }: Grades) {
+function GradesTable({ grades }: { grades: Grades }) {
   return (
     <div>
       {" "}

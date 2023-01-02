@@ -7,7 +7,7 @@ import prisma from "../lib/prismadb";
 import { authOptions } from "./api/auth/[...nextauth]";
 import type { Grades } from "types";
 
-export default function Home({ grades }: Grades) {
+export default function Home({ grades }: { grades: Grades }) {
   return (
     <div>
       <Head>

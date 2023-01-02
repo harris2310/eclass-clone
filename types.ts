@@ -1,36 +1,23 @@
-type Grades = {
-  grades: Array<{
-    course: {
-      id: number;
-      name: string;
-      term: number;
-      description: string;
-      open: boolean;
-    };
-    grade: { grade: number };
-  }>;
-};
-
-type Courses = {
-  courses: Array<{
-    id: number;
-    name: string;
-    term: number;
-    description: string;
-    open: boolean;
-    announcements: Announcements;
-  }>;
-};
-
-type CourseEach = {
+type Grades = Array<{
   course: {
     id: number;
+    name: string;
     term: number;
     description: string;
-    name: string;
     open: boolean;
-    announcements: Announcements;
   };
+  grade: { grade: number };
+}>;
+
+type Courses = Array<CourseEach>;
+
+type CourseEach = {
+  id: number;
+  term: number;
+  description: string;
+  name: string;
+  open: boolean;
+  announcements: Announcements;
 };
 
 type Account = {

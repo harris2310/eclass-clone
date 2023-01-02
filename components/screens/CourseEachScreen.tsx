@@ -2,7 +2,7 @@ import React from "react";
 import AnnouncementsTable from "components/common/AnnouncementsTable";
 import type { CourseEach } from "types";
 
-function CourseEachScreen({ course }: CourseEach) {
+function CourseEachScreen({ course }: { course: CourseEach }) {
   return (
     <div className='mx-auto mt-6 w-8/12'>
       <div className='bg-gray-100 w-full mx-auto my-12 border-cyan-600 border-2 p-6'>

@@ -6,29 +6,12 @@ import { requireAuth } from "../utils/requireAuth";
 import prisma from "../lib/prismadb";
 import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "pages/api/auth/[...nextauth]";
-import { PrismaClient, Session } from "@prisma/client";
+import type { Courses } from "types";
 import { useSession } from "next-auth/react";
 import CoursesUserScreen from "components/screens/CoursesUserScreen";
 import CurriculumScreen from "components/screens/CurriculumScreen";
 
-type Props = {
-  courses: Array<{
-    id: number;
-    name: string;
-    term: number;
-    description: string;
-    open: boolean;
-  }>;
-  myCourses: Array<{
-    id: number;
-    name: string;
-    term: number;
-    description: string;
-    open: boolean;
-  }>;
-};
-
-const CoursesPage = ({ courses, myCourses }: Props) => {
+const CoursesPage = ({ courses }: { courses: Courses }) => {
   const session = useSession();
   courses.sort((a, b) => (a.term > b.term ? 1 : -1));
   return (

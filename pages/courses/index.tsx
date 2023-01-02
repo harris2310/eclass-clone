@@ -11,7 +11,7 @@ import { useSession } from "next-auth/react";
 import CoursesUserScreen from "components/screens/CoursesUserScreen";
 import type { Courses } from "types";
 
-const CoursesPage = ({ courses }: Courses) => {
+const CoursesPage = ({ courses }: { courses: Courses }) => {
   const session = useSession();
   console.log(session);
   courses.sort((a, b) => (a.term > b.term ? 1 : -1));

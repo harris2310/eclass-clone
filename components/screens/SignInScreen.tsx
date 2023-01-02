@@ -27,23 +27,21 @@ const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
         </div>
         <Tab.Group>
           <Tab.Panels>
-            {" "}
-            <Tab.Panel>
-              <AnnouncementsTable generalAnnouncements={result[0]} />
-            </Tab.Panel>
-            <Tab.Panel>
-              {" "}
-              <AnnouncementsTable generalAnnouncements={result[1]} />
-            </Tab.Panel>
-            <Tab.Panel>
-              {" "}
-              <AnnouncementsTable generalAnnouncements={result[2]} />
-            </Tab.Panel>
+            {result.map((res) => {
+              return (
+                <>
+                  <Tab.Panel>
+                    <AnnouncementsTable generalAnnouncements={res} />
+                  </Tab.Panel>
+                </>
+              );
+            })}{" "}
           </Tab.Panels>
           <Tab.List>
-            <PaginTab>1</PaginTab>
-            <PaginTab>2</PaginTab>
-            <PaginTab>3</PaginTab>
+            {/* @ts-ignore */}
+            {[...Array(3).keys()].map((num: number) => {
+              return <PaginTab key={num}>{String(num + 1)}</PaginTab>;
+            })}
           </Tab.List>
         </Tab.Group>
 
