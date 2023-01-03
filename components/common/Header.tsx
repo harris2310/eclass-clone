@@ -26,13 +26,13 @@ const Header = (props: Props) => {
         </Link>
         <div className='w-full block flex-grow lg:flex lg:items-center lg:w-auto text-right px-16'>
           <div className='text-sm lg:flex-grow'>
-            <Link href='/courses' className='block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-8'>
-              Courses
+            <Link data-testid='curriculum-link' href='/curriculum' className='block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-8'>
+              Curriculum
             </Link>
             {session.status == "authenticated" && (
               <>
-                <Link data-testid='curriculum-link' href='/curriculum' className='block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-8'>
-                  Curriculum
+                <Link href='/courses' className='block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-8'>
+                  Courses
                 </Link>
                 <Link data-testid='grades-link' href='/grades' className='block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-8'>
                   Grades

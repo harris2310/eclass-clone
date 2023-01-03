@@ -32,25 +32,19 @@ const CoursesPage = ({ courses }: { courses: Courses }) => {
 
 export async function getServerSideProps(context: any) {
   const session = await unstable_getServerSession(context.req, context.res, authOptions);
-  return requireAuth(context, async () => {
-    const data = await prisma.course.findMany();
-    let courses = data;
-    // return student's courses
-    const email = session!.user!.email!;
-    const myData = await prisma.student.findMany({
-      include: {
-        courses: true,
-      },
-      where: {
-        email: email,
-      },
-    });
-    const courseIds = myData[0].courses.map((c: any) => c.courseId);
-    let myCourses = await prisma.course.findMany({
-      where: { id: { in: courseIds } },
-    });
-    return { props: { courses, myCourses } };
+  const data = await prisma.course.findMany();
+  let courses = data;
+  // return student's courses
+  const myData = await prisma.student.findMany({
+    include: {
+      courses: true,
+    },
   });
+  const courseIds = myData[0].courses.map((c: any) => c.courseId);
+  let myCourses = await prisma.course.findMany({
+    where: { id: { in: courseIds } },
+  });
+  return { props: { courses, myCourses } };
 }
 
 export default CoursesPage;

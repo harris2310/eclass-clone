@@ -7,7 +7,7 @@ import PaginTab from "../common/PaginTab";
 import AnnouncementsTable from "../common/AnnouncementsTable";
 import Image from "next/image";
 import googleSVG from "../../assets/google_icon.svg";
-import type { Announcements } from "types";
+import type { Announcements, AnnouncementEach } from "types";
 
 type Props = {
   providers: any;
@@ -27,10 +27,10 @@ const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
         </div>
         <Tab.Group>
           <Tab.Panels>
-            {result.map((res) => {
+            {result.map((res: any) => {
               return (
                 <>
-                  <Tab.Panel>
+                  <Tab.Panel key={res.id}>
                     <AnnouncementsTable generalAnnouncements={res} />
                   </Tab.Panel>
                 </>

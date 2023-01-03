@@ -29,15 +29,11 @@ const CoursesPage = ({ courses }: { courses: Courses }) => {
 };
 
 export async function getServerSideProps(context: any) {
-  const session = await unstable_getServerSession(context.req, context.res, authOptions);
-  let courses;
-  if (!session) {
-    // return all courses
-    const data = await prisma.course.findMany();
-    courses = data;
-  } else {
+  return requireAuth(context, async () => {
+    const session = await unstable_getServerSession(context.req, context.res, authOptions);
+    let courses;
     // return student's courses
-    const email = session.user!.email!;
+    const email = session!.user!.email!;
     const data = await prisma.student.findMany({
       include: {
         courses: true,
@@ -51,9 +47,9 @@ export async function getServerSideProps(context: any) {
       where: { id: { in: courseIds } },
     });
     courses;
-  }
-  console.log(courses);
-  return { props: { courses } };
+    console.log(courses);
+    return { props: { courses } };
+  });
 }
 
 export default CoursesPage;
