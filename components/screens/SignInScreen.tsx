@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { signIn } from "next-auth/react";
 import Button from "../common/Button";
 import { Variant } from "../common/Button";
@@ -22,7 +22,7 @@ const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
   return (
     <>
       <div className='mx-auto mt-6'>
-        <div className='bg-gray-100 text w-8/12 mx-auto my-4 border-cyan-600 border-2 p-2'>
+        <div className='dark:bg-black bg-gray-100 text w-8/12 mx-auto my-4 border-cyan-600 border-2 p-2'>
           The Hanozi-Class platform is a complete Electronic Course Management System. Access to the service is done using a simple web browser.
         </div>
         <Tab.Group>
@@ -39,8 +39,8 @@ const SignInScreen = ({ providers, generalAnnouncements }: Props) => {
           </Tab.Panels>
           <Tab.List>
             {/* @ts-ignore */}
-            {[...Array(3).keys()].map((num: number) => {
-              return <PaginTab key={num}>{String(num + 1)}</PaginTab>;
+            {[...Array(3).keys()].map((num: number, i: number) => {
+              return <PaginTab key={i}>{String(num + 1)}</PaginTab>;
             })}
           </Tab.List>
         </Tab.Group>
